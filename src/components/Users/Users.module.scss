@@ -1,0 +1,59 @@
+.Users {
+  padding: 0 0 10px 0;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  .usersList{
+    margin: 0 5px 0 5px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    .UserItem {
+      flex: 1 1 250px;
+      margin: 5px;
+      border-radius: 10px;
+      background: #343434;
+      padding: 10px;
+      box-shadow: 1px 1px 2px 2px rgba(21, 21, 21, .65);
+      .head {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        img {
+          height: 40px;
+          width: 40px;
+          border-radius: 20px;
+        }
+        .headText {
+          flex: 1;
+          margin-left: 8px;
+          h3 {
+            margin: 0 0 3px 0;
+            font-size: 14px;
+          }
+          p {
+            margin: 0;
+            font-size: 14px;
+          }
+
+        }
+        button {
+          &.follow {
+            background-color: #0089b7;
+            border: 1px solid #0089b7;
+          }
+          &.unfollow {
+            background-color: #b04447;
+            border: 1px solid #b04447;
+          }
+        }
+      }
+    }
+    .dummy {
+      flex: 1 1 270px;
+      margin: 5px;
+    }
+  }
+}

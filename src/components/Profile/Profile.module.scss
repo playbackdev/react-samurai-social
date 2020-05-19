@@ -1,0 +1,14 @@
+.content {
+  flex: 1;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.profileContent {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: stretch;
+}
+

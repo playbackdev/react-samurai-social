@@ -1,0 +1,25 @@
+.app-wrapper {
+  background: linear-gradient(to top, #262626 40%, #505050 100%) fixed;
+  color: white;
+  height: 100vh;
+
+  .app-container {
+    background: linear-gradient(to top, #262626 40%, #505050 100%) fixed;
+    position: relative;
+    margin: 0 auto;
+    min-height: 100%;
+    display: flex;
+
+    .app-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 52px 0 0px 0;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+/*      min-height: 100%;*/
+    }
+  }
+}
+
+

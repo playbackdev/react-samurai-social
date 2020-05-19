@@ -1,0 +1,29 @@
+$screen-sm : '800px';
+$screen-md : '1000px';
+
+@mixin mq-for-sm {
+  @media (max-width: $screen-sm) {
+    @content;
+  }
+}
+
+@mixin mq-for-md {
+  @media (max-width: $screen-md) {
+    @content;
+  }
+}
+
+@mixin customScrollbar {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #5b5b5b;
+    border-radius: 3px;
+  }
+}

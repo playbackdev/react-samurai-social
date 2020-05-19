@@ -1,0 +1,14 @@
+.message {
+  border-radius: 18px;
+  padding: 8px;
+  margin: 2px;
+  align-self: flex-start;
+  max-width: 80%;
+  box-shadow: 1px 1px 1px 1px #212121;
+  background: #343434;
+
+  &.own {
+    align-self: flex-end;
+    background: #0089b7;
+  }
+}

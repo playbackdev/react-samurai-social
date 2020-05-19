@@ -1,0 +1,35 @@
+@import "../../../styles/mixins";
+
+.Posts {
+  display: flex;
+  margin: 0 10px 10px 10px;
+  flex: 3 0 300px;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.newPost {
+  border-radius: 10px;
+  background: #363636;
+  padding: 10px;
+  box-shadow: 1px 1px 2px 2px rgba(35, 35, 35, .5);
+  form {
+    display: flex;
+    flex-flow: column nowrap;
+    textarea {
+      align-self: stretch;
+      color: white;
+      border-radius: 5px;
+      resize: none;
+      height: 50px;
+      border: 1px solid #565656;
+      padding: 8px;
+      background-color: #303030;
+      @include customScrollbar;
+    }
+    button {
+      margin-top: 10px;
+      align-self: flex-end;
+    }
+  }
+}
