@@ -24,10 +24,19 @@
         display: flex;
         flex-flow: row nowrap;
         justify-content: flex-start;
+        a:hover {
+          color: #0089b7;
+          transition: color .3s;
+        }
         img {
           height: 40px;
           width: 40px;
-          border-radius: 20px;
+          border-radius: 25px;
+          border: 2px solid #676767;
+          &:hover {
+            border: 2px solid #0089b7;
+            transition: border .3s;
+          }
         }
         .headText {
           flex: 1;
@@ -46,10 +55,18 @@
           &.follow {
             background-color: #0089b7;
             border: 1px solid #0089b7;
+            &:hover {
+              background-color: #00a1d2;
+              transition: background-color .3s;
+            }
           }
           &.unfollow {
             background-color: #b04447;
             border: 1px solid #b04447;
+            &:hover {
+              background-color: #d44f52;
+              transition: background-color .3s;
+            }
           }
         }
       }

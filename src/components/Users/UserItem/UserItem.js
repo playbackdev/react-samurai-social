@@ -3,6 +3,7 @@ import classes from '../Users.module.scss'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faUserMinus, faUserPlus} from "@fortawesome/free-solid-svg-icons";
 import userPhotoSmall from '../../../assets/img/userPhotoSmall.png';
+import {NavLink} from "react-router-dom";
 
 const UserItem = (props) => {
 
@@ -17,11 +18,15 @@ const UserItem = (props) => {
     return (
         <div className={classes.UserItem}>
             <div className={classes.head}>
-                <img
-                    src={props.photo ? props.photo : userPhotoSmall }
-                />
+                <NavLink to={'/profile/' + props.id}>
+                    <img
+                        src={props.photo ? props.photo : userPhotoSmall}
+                    />
+                </NavLink>
                 <div className={classes.headText}>
-                    <h3>{props.name}</h3>
+                    <NavLink to={'/profile/' + props.id}>
+                        <h3>{props.name}</h3>
+                    </NavLink>
                     <p>{'props.location.country'}, {'props.location.city'}</p>
                 </div>
                 <div>

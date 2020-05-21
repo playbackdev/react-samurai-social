@@ -1,7 +1,11 @@
 const ADD_POST = 'ADD_POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
+const SET_USER_PROFILE = 'SET_USER_PROFILE';
+const SET_IS_FETCHING = 'SET_IS_FETCHING';
 
 const initialState = {
+    isFetching: false,
+    profile: null,
     newPostText: '',
     posts: [
         {id: 0, text: 'My first post', likesCount: 123},
@@ -12,6 +16,11 @@ const initialState = {
 
 const profileReducer = (state = initialState, action) => {
     switch(action.type) {
+        case SET_USER_PROFILE:
+            return {
+                ...state,
+                profile: action.profile
+            };
         case ADD_POST:
             return {
                 ...state,
@@ -30,6 +39,10 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 newPostText: action.text
             };
+        case SET_IS_FETCHING:
+            return {
+                ...state, isFetching: action.isFetching
+            };
         default:
             return state;
     }
@@ -37,10 +50,18 @@ const profileReducer = (state = initialState, action) => {
 
 export default profileReducer;
 
+export const fetchUserProfile = profile => {
+    return { type: SET_USER_PROFILE, profile}
+};
+
 export const addPostActionCreator = () => {
     return {type: ADD_POST};
 };
 
 export const updateNewPostTextActionCreator = text => {
     return { type: UPDATE_NEW_POST_TEXT, text: text}
+};
+
+export const setIsFetching = isFetching => {
+    return { type: SET_IS_FETCHING, isFetching}
 };
