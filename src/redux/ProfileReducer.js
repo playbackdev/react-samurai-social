@@ -1,3 +1,5 @@
+import {API} from "../api/api";
+
 const ADD_POST = 'ADD_POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
@@ -50,7 +52,7 @@ const profileReducer = (state = initialState, action) => {
 
 export default profileReducer;
 
-export const fetchUserProfile = profile => {
+export const fetchProfileSuccess = profile => {
     return { type: SET_USER_PROFILE, profile}
 };
 
@@ -64,4 +66,17 @@ export const updateNewPostTextActionCreator = text => {
 
 export const setIsFetching = isFetching => {
     return { type: SET_PROFILE_IS_FETCHING, isFetching}
+};
+
+//thunks
+export const fetchProfile = (userId) => {
+    return (dispatch) => {
+        dispatch(setIsFetching(true));
+        API.fetchProfile(userId)
+            .then(data => {
+                dispatch(fetchProfileSuccess(data));
+                dispatch(setIsFetching(false));
+            });
+
+    };
 };

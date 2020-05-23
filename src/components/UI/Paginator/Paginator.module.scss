@@ -24,7 +24,12 @@
     &:hover {
       background-color: #0099ce;
     }
-    &:disabled {
+    &:disabled,&:disabled:hover {
+      cursor: auto;
+      background-color: #424242;
+    }
+    &.dots:disabled {
+      cursor: auto;
       background-color: #282828;
       border: 1px solid #282828;
       padding: 10px 5px 10px 5px;

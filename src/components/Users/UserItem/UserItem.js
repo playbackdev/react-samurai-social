@@ -15,22 +15,18 @@ const UserItem = (props) => {
 
     const followUser = () => {
         setFetchingFollow(true);
-        API.followUser(props.id).then(data => {
-            if (data.resultCode === 0) {
-                props.followUser(props.id);
-            }
+        props.followUser(props.id, () => {
             setFetchingFollow(false);
         });
+
     };
 
     const unfollowUser = () => {
         setFetchingFollow(true);
-        API.unfollowUser(props.id).then(data => {
-            if (data.resultCode === 0) {
-                props.unfollowUser(props.id);
-            }
+        props.unfollowUser(props.id, () => {
             setFetchingFollow(false);
         });
+
     };
 
     return (

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import classes from './Paginator.module.scss'
 
-const Paginator = ({pagesCount, currentPage, onPageChanged}) => {
+const Paginator = ({pagesCount, currentPage, onPageChanged, isFetching}) => {
 
     const n = currentPage;
     const D = 7; //pages to draw
@@ -40,12 +40,13 @@ const Paginator = ({pagesCount, currentPage, onPageChanged}) => {
         pages.push(
             <button
                 key="1"
+                disabled={isFetching}
                 onClick={() => onPageChangedHandler(1)}
             >1
             </button>
         );
         pages.push(
-            <button
+            <button className={classes.dots}
                 key='startDisabled'
                 disabled="disabled"
             >...
@@ -57,6 +58,7 @@ const Paginator = ({pagesCount, currentPage, onPageChanged}) => {
         pages.push(
             <button
                 key={i}
+                disabled={isFetching}
                 className={n === i ? classes.active : ''}
                 onClick={() => onPageChangedHandler(i)}
             >{i}
@@ -66,7 +68,7 @@ const Paginator = ({pagesCount, currentPage, onPageChanged}) => {
 
     if(b <= P - 1) {
         pages.push(
-            <button
+            <button className={classes.dots}
                 key='endDisabled'
                 disabled="disabled"
             >...
@@ -75,6 +77,7 @@ const Paginator = ({pagesCount, currentPage, onPageChanged}) => {
         pages.push(
             <button
                 key={P}
+                disabled={isFetching}
                 onClick={() => onPageChangedHandler(P)}
             >{P}
             </button>

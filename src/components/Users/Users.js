@@ -6,12 +6,12 @@ import Preloader from "../UI/Preloader/Preloader";
 
 const Users = (props) => {
 
-    const followUser = (userId) => {
-        props.followUser(userId);
+    const followUser = (userId, callback) => {
+        props.followUser(userId, callback);
     };
 
-    const unfollowUser = (userId) => {
-        props.unfollowUser(userId);
+    const unfollowUser = (userId, callback) => {
+        props.unfollowUser(userId, callback);
     };
 
     const onPageChanged = (pageNum) => {
@@ -28,6 +28,7 @@ const Users = (props) => {
                 <p>Всего найдено пользователей: {props.totalUsersCount}</p>
             :null}
             <Paginator
+                isFetching={props.isFetching}
                 currentPage={props.currentPage}
                 pagesCount={pages}
                 onPageChanged={onPageChanged}
@@ -47,7 +48,6 @@ const Users = (props) => {
                                     location={'user.location'}
                                     followUser={followUser}
                                     unfollowUser={unfollowUser}
-                                    isFetching={props.isFetching}
                                 />
                             )
                         })

@@ -1,27 +1,12 @@
 import React from "react";
 import Header from "./Header";
-import * as axios from "axios";
 import {connect} from "react-redux";
-import {fetchAuthUserData, setIsFetching} from "../../redux/AuthReducer";
+import {authMe} from "../../redux/AuthReducer";
 
 class HeaderContainer extends React.Component {
 
     componentDidMount() {
-        this.props.setIsFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {
-            withCredentials: true
-        })
-            .then(response => {
-                if(response.data.resultCode === 0) {
-                    this.props.fetchAuthUserData(
-                        response.data.data.id,
-                        response.data.data.email,
-                        response.data.data.login,
-                        true);
-                }
-
-                this.props.setIsFetching(false);
-            });
+        authMe();
     }
 
     render() {
@@ -40,8 +25,5 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToProps = {
-    fetchAuthUserData, setIsFetching
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);
+export default connect(mapStateToProps, authMe)(HeaderContainer);
