@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import Header from "./components/Header/Header";
+import HeaderContainer from "./components/Header/HeaderContainer";
 import {Route} from "react-router-dom";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
@@ -12,13 +12,16 @@ import Settings from "./components/Settings/Settings";
 
 
 
+
 const App = () => {
     return (
             <div className="app-wrapper">
-                <Header/>
+                <HeaderContainer/>
                 <div className="app-container">
                     <div className="app-content">
-                    <Route path='/profile' render={ () => <ProfileContainer/>}/>
+                        {/*Знак ? в конце пути означает, что параметр опциональный,
+                        роут будет работать и без него*/}
+                    <Route path='/profile/:userId?' render={ () => <ProfileContainer/>}/>
                     <Route path='/dialogs' render={ () => <DialogsContainer/>}/>
                     <Route path='/users' component={UsersContainer}/>
                     <Route path='/news' component={News}/>

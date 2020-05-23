@@ -1,18 +1,36 @@
-import React from "react";
+import React, {useState} from "react";
 import classes from '../Users.module.scss'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faUserMinus, faUserPlus} from "@fortawesome/free-solid-svg-icons";
 import userPhotoSmall from '../../../assets/img/userPhotoSmall.png';
 import {NavLink} from "react-router-dom";
+import Button from "../../UI/Button/Button";
+import * as axios from "axios";
+import {API_KEY} from "../../../config/api";
+import {API} from "../../../api/api";
 
 const UserItem = (props) => {
 
+    const [fetchingFollow, setFetchingFollow] = useState(false);
+
     const followUser = () => {
-        props.followUser(props.id);
+        setFetchingFollow(true);
+        API.followUser(props.id).then(data => {
+            if (data.resultCode === 0) {
+                props.followUser(props.id);
+            }
+            setFetchingFollow(false);
+        });
     };
 
     const unfollowUser = () => {
-        props.unfollowUser(props.id);
+        setFetchingFollow(true);
+        API.unfollowUser(props.id).then(data => {
+            if (data.resultCode === 0) {
+                props.unfollowUser(props.id);
+            }
+            setFetchingFollow(false);
+        });
     };
 
     return (
@@ -32,21 +50,21 @@ const UserItem = (props) => {
                 <div>
                     {
                         props.followed
-                            ? <button
-                                className={classes.unfollow}
-                                onClick={unfollowUser}
+                            ? <Button color={'red'}
+                                      onClick={unfollowUser}
+                                      disabled={fetchingFollow}
                             >
                                 <FontAwesomeIcon icon={faUserMinus}/>&nbsp;
                                 Unfollow
-                            </button>
+                            </Button>
                             :
-                            <button
-                                className={classes.follow}
-                                onClick={followUser}
+                            <Button color={'blue'}
+                                    onClick={followUser}
+                                    disabled={fetchingFollow}
                             >
                                 <FontAwesomeIcon icon={faUserPlus}/>&nbsp;
                                 Follow
-                            </button>
+                            </Button>
                     }
 
                 </div>

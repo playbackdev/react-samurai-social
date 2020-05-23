@@ -51,24 +51,6 @@
           }
 
         }
-        button {
-          &.follow {
-            background-color: #0089b7;
-            border: 1px solid #0089b7;
-            &:hover {
-              background-color: #00a1d2;
-              transition: background-color .3s;
-            }
-          }
-          &.unfollow {
-            background-color: #b04447;
-            border: 1px solid #b04447;
-            &:hover {
-              background-color: #d44f52;
-              transition: background-color .3s;
-            }
-          }
-        }
       }
     }
     .dummy {

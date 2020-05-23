@@ -1,0 +1,27 @@
+.Button {
+  border-radius: 4px;
+  padding: 8px;
+  color: white;
+  cursor: pointer;
+  transition: background-color .3s;
+
+  &.blue {
+    background-color: #0089b7;
+    border: 1px solid #0089b7;
+    &:hover {
+      background-color: #00a1d2;
+    }
+  }
+  &.red {
+    background-color: #b04447;
+    border: 1px solid #b04447;
+    &:hover {
+      background-color: #d44f52;
+    }
+  }
+
+  &:disabled,&:disabled:hover {
+    background-color: #323232;
+    cursor: not-allowed;
+  }
+}

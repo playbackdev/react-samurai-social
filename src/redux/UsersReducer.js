@@ -2,7 +2,7 @@ const USER_FOLLOW = 'USER_FOLLOW';
 const USER_UNFOLLOW = 'USER_UNFOLLOW';
 const FETCH_USERS = 'FETCH_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
-const SET_IS_FETCHING = 'SET_IS_FETCHING';
+const SET_USERS_IS_FETCHING = 'SET_USERS_IS_FETCHING';
 
 const initialState = {
     users: [],
@@ -47,7 +47,7 @@ const usersReducer = (state = initialState, action) => {
                         }: user;
                 })
             };
-        case SET_IS_FETCHING:
+        case SET_USERS_IS_FETCHING:
             return {
                 ...state,
                 isFetching: action.isFetching
@@ -76,7 +76,7 @@ export const setCurrentPage = (currentPage) => {
 };
 
 export const setIsFetching = (isFetching) => {
-    return {type: SET_IS_FETCHING, isFetching}
+    return {type: SET_USERS_IS_FETCHING, isFetching}
 };
 
 export default usersReducer;

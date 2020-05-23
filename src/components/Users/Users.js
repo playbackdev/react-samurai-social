@@ -2,7 +2,6 @@ import React from "react";
 import classes from './Users.module.scss'
 import UserItem from "./UserItem/UserItem";
 import Paginator from "../UI/Paginator/Paginator";
-import loader from '../../assets/img/Loader.svg';
 import Preloader from "../UI/Preloader/Preloader";
 
 const Users = (props) => {
@@ -25,7 +24,9 @@ const Users = (props) => {
     return (
         <div className={classes.Users}>
             <h3>Users</h3>
-            <p>Всего пользователей: {props.totalUsersCount}</p>
+            {props.users.length ?
+                <p>Всего найдено пользователей: {props.totalUsersCount}</p>
+            :null}
             <Paginator
                 currentPage={props.currentPage}
                 pagesCount={pages}
@@ -46,6 +47,7 @@ const Users = (props) => {
                                     location={'user.location'}
                                     followUser={followUser}
                                     unfollowUser={unfollowUser}
+                                    isFetching={props.isFetching}
                                 />
                             )
                         })
