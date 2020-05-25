@@ -1,11 +1,10 @@
 import * as axios from "axios";
-import {API_KEY} from "../config/api";
 
 const axiosInstance = axios.create({
     withCredentials: true,
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
     headers: {
-        "API-KEY": API_KEY
+        "API-KEY": '865d9a90-c17e-47a6-8a20-ea2bc0a08d8d'
     }
 });
 
@@ -24,6 +23,14 @@ export const API = {
     },
     fetchProfile: (userId) => {
         return axiosInstance.get(`profile/${userId}`)
+            .then(response => response.data);
+    },
+    fetchStatus: (userId) => {
+        return axiosInstance.get(`profile/status/${userId}`)
+            .then(response => response.data);
+    },
+    updateStatus: (status) => {
+        return axiosInstance.put(`profile/status`, {status})
             .then(response => response.data);
     },
     authMe: () => {

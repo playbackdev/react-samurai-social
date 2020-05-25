@@ -4,10 +4,12 @@ const ADD_POST = 'ADD_POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_PROFILE_IS_FETCHING = 'SET_PROFILE_IS_FETCHING';
+const SET_STATUS = 'SET_STATUS';
 
 const initialState = {
     isFetching: false,
     profile: null,
+    status: '',
     newPostText: '',
     posts: [
         {id: 0, text: 'My first post', likesCount: 123},
@@ -45,6 +47,11 @@ const profileReducer = (state = initialState, action) => {
             return {
                 ...state, isFetching: action.isFetching
             };
+        case SET_STATUS:
+            return {
+                ...state,
+                status: action.status
+            };
         default:
             return state;
     }
@@ -68,6 +75,12 @@ export const setIsFetching = isFetching => {
     return { type: SET_PROFILE_IS_FETCHING, isFetching}
 };
 
+export const setStatus = status => {
+    return { type: SET_STATUS, status}
+};
+
+
+
 //thunks
 export const fetchProfile = (userId) => {
     return (dispatch) => {
@@ -76,6 +89,28 @@ export const fetchProfile = (userId) => {
             .then(data => {
                 dispatch(fetchProfileSuccess(data));
                 dispatch(setIsFetching(false));
+            });
+
+    };
+};
+
+export const fetchStatus = (userId) => {
+    return (dispatch) => {
+        API.fetchStatus(userId)
+            .then(data => {
+                dispatch(setStatus(data));
+            });
+
+    };
+};
+
+export const updateStatus = (status) => {
+    return (dispatch) => {
+        API.updateStatus(status)
+            .then(data => {
+                if(data.resultCode === 0) {
+                    dispatch(setStatus(status));
+                }
             });
 
     };

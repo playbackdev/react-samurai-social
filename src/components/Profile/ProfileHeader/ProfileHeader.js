@@ -1,6 +1,7 @@
 import React from "react";
 import classes from './ProfileHeader.module.scss'
 import UserPhotoSmall from '../../../assets/img/userPhotoSmall.png'
+import ProfileStatus from "./ProfileStatus";
 
 const ProfileHeader = (props) => {
     return (
@@ -14,6 +15,10 @@ const ProfileHeader = (props) => {
                  src={props.avatar || UserPhotoSmall}
             />
             <h1>{props.fullName}</h1>
+            <ProfileStatus
+                status={props.status}
+                updateStatus={props.updateStatus}
+            />
         </div>
     );
 };

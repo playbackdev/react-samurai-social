@@ -1,13 +1,10 @@
 import React, {useState} from "react";
-import classes from '../Users.module.scss'
+import classes from './Users.module.scss'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faUserMinus, faUserPlus} from "@fortawesome/free-solid-svg-icons";
-import userPhotoSmall from '../../../assets/img/userPhotoSmall.png';
+import userPhotoSmall from '../../assets/img/userPhotoSmall.png';
 import {NavLink} from "react-router-dom";
-import Button from "../../UI/Button/Button";
-import * as axios from "axios";
-import {API_KEY} from "../../../config/api";
-import {API} from "../../../api/api";
+import Button from "../UI/Button/Button";
 
 const UserItem = (props) => {
 
@@ -33,7 +30,7 @@ const UserItem = (props) => {
         <div className={classes.UserItem}>
             <div className={classes.head}>
                 <NavLink to={'/profile/' + props.id}>
-                    <img
+                    <img alt=""
                         src={props.photo ? props.photo : userPhotoSmall}
                     />
                 </NavLink>

@@ -1,6 +1,6 @@
 import React from "react";
 import classes from './Users.module.scss'
-import UserItem from "./UserItem/UserItem";
+import UserItem from "./UserItem";
 import Paginator from "../UI/Paginator/Paginator";
 import Preloader from "../UI/Preloader/Preloader";
 
@@ -54,19 +54,19 @@ const Users = (props) => {
                     }
                     {/*Заглушки для красивой верстки*/}
                     {
-                        props.users.length % 4 === 3
+                        props.users.length % 3 === 2
                             ? <div className={classes.dummy}></div>
-                            : props.users.length % 4 === 2
+                            : props.users.length % 3 === 1
                             ? <React.Fragment>
                                 <div className={classes.dummy}></div>
                                 <div className={classes.dummy}></div>
                             </React.Fragment>
-                            : props.users.length % 4 === 1
+                            : /*props.users.length % 3 === 1
                                 ? <React.Fragment>
                                     <div className={classes.dummy}></div>
                                     <div className={classes.dummy}></div>
                                     <div className={classes.dummy}></div>
-                                </React.Fragment> : null
+                                </React.Fragment> :*/ null
                     }
                 </div>
             }

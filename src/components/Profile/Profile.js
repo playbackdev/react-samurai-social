@@ -14,6 +14,8 @@ const Profile = (props) => {
                     <ProfileHeader
                         fullName={props.profile.fullName}
                         avatar={props.profile.photos.large}
+                        status={props.status}
+                        updateStatus={props.updateStatus}
                     />
                     <div className={classes.profileContent}>
                         <ProfileInfo profile={props.profile}/>

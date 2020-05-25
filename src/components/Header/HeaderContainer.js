@@ -6,7 +6,7 @@ import {authMe} from "../../redux/AuthReducer";
 class HeaderContainer extends React.Component {
 
     componentDidMount() {
-        authMe();
+        this.props.authMe();
     }
 
     render() {
@@ -25,5 +25,8 @@ const mapStateToProps = (state) => {
     };
 };
 
+const mapDispatchToProps = {
+    authMe
+};
 
-export default connect(mapStateToProps, authMe)(HeaderContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);
