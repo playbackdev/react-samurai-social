@@ -1,4 +1,4 @@
-@import "../../styles/mixins";
+@import "../UI/mixins";
 
 .Dialogs {
 
@@ -122,23 +122,12 @@
       flex-flow: row nowrap;
       align-items: center;
       justify-content: stretch;
-
       input {
         flex: 1;
-        color: white;
-        border-radius: 5px;
-        border: 1px solid #565656;
-        padding: 8px;
-        background-color: #303030;
       }
-
       button {
-        color: white;
         margin-left: 10px;
         border-radius: 6px;
-        border: 1px solid deepskyblue;
-        padding: 8px;
-        background-color: deepskyblue;
       }
     }
   }

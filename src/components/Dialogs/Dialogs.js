@@ -4,18 +4,14 @@ import DialogHeader from "./DialogHeader/DialogHeader";
 import DialogMessageForm from "./DialogMessageForm/DialogMessageForm";
 import DialogsList from "./DialogsList/DialogsList";
 import DialogsWindow from "./DialogWindow/DialogWindow";
+import {reset} from 'redux-form';
 
 const Dialogs = (props) => {
 
 
-    const sendMessageHandler = (e) => {
-        e.preventDefault();
-        if(e.target.firstChild.value === '') return;
-        props.sendMessageHandler(e.target.firstChild.value);
-    };
-
-    const onInputMessageChangeHandler = (e) => {
-        props.onInputMessageChangeHandler(e.target.value);
+    const sendMessageHandler = (formData, dispatch) => {
+        props.dialogSendMessage(formData.messageText);
+        dispatch(reset('sendMessage'));
     };
 
     /* Кнопка скрытия блока списка диалогов */
@@ -46,10 +42,7 @@ const Dialogs = (props) => {
                 />
             </div>
             {/* Footer */}
-            <DialogMessageForm
-                sendMessageHandler={sendMessageHandler}
-                onInputMessageChangeHandler={onInputMessageChangeHandler}
-                messageText={props.state.messageText}
+            <DialogMessageForm onSubmit={sendMessageHandler}
             />
         </div>
     );

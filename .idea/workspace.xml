@@ -2,24 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c278fb4a-907a-4f4c-be94-e57ec3111156" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/UI/Preloader/Preloader.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Login/Login.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Login/LoginForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Profile/Posts/Post/AddPostForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/UI/style.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/UI/vars.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/DialogMessageForm/DialogMessageForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/DialogMessageForm/DialogMessageForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/Posts/Posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Posts/Posts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/Posts/Posts.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Posts/Posts.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/Posts/PostsContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Posts/PostsContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileHeader/ProfileHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileHeader/ProfileHeader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileInfo/ProfileInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UI/Preloader/Preloader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/Preloader/Preloader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Users/UserItem/UserItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/UserItem/UserItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Users/Users.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/Users.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Users/UsersContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/UsersContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileHeader/ProfileStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileHeader/ProfileStatus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileHeader/ProfileStatus.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileHeader/ProfileStatus.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Button/Button.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Button/Button.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Users/UserItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/UserItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hoc/withAuthRedirect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/withAuthRedirect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/DialogsReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/DialogsReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/ProfileReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/ProfileReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/UsersReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/UsersReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/reduxStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reduxStore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/buttons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/buttons.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/buttons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/mixins.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,8 +45,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="SCSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -43,20 +58,20 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Profile" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../react-quiz-app" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\WebStormProjects\react-samurai-social\src\assets\img" />
-      <recent name="E:\WebStormProjects\react-samurai-social\src\styles" />
-      <recent name="E:\WebStormProjects\react-samurai-social\src\components\Dialogs\DialogHeader" />
-      <recent name="E:\WebStormProjects\react-samurai-social\src\components\Dialogs\DialogFooter" />
-      <recent name="E:\WebStormProjects\react-samurai-social\src\components\Profile" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\WebStormProjects\react-samurai-social\src\components\Profile" />
       <recent name="E:\WebStormProjects\react-samurai-social\src\components" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\WebStormProjects\react-samurai-social\src\components\UI" />
+      <recent name="E:\WebStormProjects\react-samurai-social\src\components\Users" />
+      <recent name="E:\WebStormProjects\react-samurai-social\src\assets\img" />
+      <recent name="E:\WebStormProjects\react-samurai-social\src\styles" />
+      <recent name="E:\WebStormProjects\react-samurai-social\src\components\Dialogs\DialogHeader" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -93,7 +108,13 @@
       <workItem from="1589716608591" duration="18329000" />
       <workItem from="1589885038515" duration="16642000" />
       <workItem from="1589996054372" duration="12594000" />
-      <workItem from="1590058575610" duration="25290000" />
+      <workItem from="1590058575610" duration="25554000" />
+      <workItem from="1590151370037" duration="11682000" />
+      <workItem from="1590240863463" duration="18825000" />
+      <workItem from="1590331778100" duration="9480000" />
+      <workItem from="1590419582123" duration="13602000" />
+      <workItem from="1590517590878" duration="8497000" />
+      <workItem from="1590598152926" duration="7480000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1589915525226</created>
@@ -109,7 +130,35 @@
       <option name="project" value="LOCAL" />
       <updated>1590084625572</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Profile Page fetch data from server">
+      <created>1590091746258</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1590091746258</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Follow, Unfollow">
+      <created>1590255061441</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1590255061441</updated>
+    </task>
+    <task id="LOCAL-00005" summary="redux-thunk">
+      <created>1590265761511</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1590265761511</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Profile status fetch/update">
+      <created>1590439978498</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1590439978498</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,6 +180,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="Users Page with pagination" />
-    <option name="LAST_COMMIT_MESSAGE" value="Users Page with pagination" />
+    <MESSAGE value="Profile Page fetch data from server" />
+    <MESSAGE value="Follow, Unfollow" />
+    <MESSAGE value="redux-thunk" />
+    <MESSAGE value="Profile status fetch/update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Profile status fetch/update" />
   </component>
 </project>

@@ -1,4 +1,4 @@
-@import "../../../styles/mixins";
+@import "../../UI/mixins";
 
 .Posts {
   display: flex;
@@ -18,13 +18,8 @@
     flex-flow: column nowrap;
     textarea {
       align-self: stretch;
-      color: white;
-      border-radius: 5px;
       resize: none;
       height: 50px;
-      border: 1px solid #565656;
-      padding: 8px;
-      background-color: #303030;
       @include customScrollbar;
     }
     button {

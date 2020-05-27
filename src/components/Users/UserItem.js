@@ -4,7 +4,6 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faUserMinus, faUserPlus} from "@fortawesome/free-solid-svg-icons";
 import userPhotoSmall from '../../assets/img/userPhotoSmall.png';
 import {NavLink} from "react-router-dom";
-import Button from "../UI/Button/Button";
 
 const UserItem = (props) => {
 
@@ -43,21 +42,21 @@ const UserItem = (props) => {
                 <div>
                     {
                         props.followed
-                            ? <Button color={'red'}
+                            ? <button className={'red'}
                                       onClick={unfollowUser}
                                       disabled={fetchingFollow}
                             >
                                 <FontAwesomeIcon icon={faUserMinus}/>&nbsp;
                                 Unfollow
-                            </Button>
+                            </button>
                             :
-                            <Button color={'blue'}
+                            <button className={'blue'}
                                     onClick={followUser}
                                     disabled={fetchingFollow}
                             >
                                 <FontAwesomeIcon icon={faUserPlus}/>&nbsp;
                                 Follow
-                            </Button>
+                            </button>
                     }
 
                 </div>

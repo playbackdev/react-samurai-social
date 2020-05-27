@@ -14,7 +14,7 @@ const Header = (props) => {
             <Navbar/>
             <div className={classes.LoginPanel}>
                 {props.isFetching ? <Preloader/>
-                    : props.isAuth ? 'You logged as: ' + props.login
+                    : props.isAuth ? 'Hello, ' + props.login + '!'
                         : <NavLink to='/login'>Login</NavLink>
                 }
             </div>

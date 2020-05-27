@@ -5,16 +5,18 @@ import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
+import Preloader from "../UI/Preloader/Preloader";
 
 class ProfileContainer extends React.Component {
 
     componentDidMount() {
-        const userId = this.props.match.params.userId || this.props.auth.userId;
+        const userId = this.props.match.params.userId || this.props.auth.userId || 8332;
         this.props.fetchProfile(userId);
         this.props.fetchStatus(userId);
     }
 
     render() {
+        if(this.props.isFetching || !this.props.profile) return <Preloader/>;
         return (
             <Profile {...this.props} />
         );

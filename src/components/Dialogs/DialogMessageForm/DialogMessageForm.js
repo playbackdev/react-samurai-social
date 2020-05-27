@@ -2,14 +2,16 @@ import React from "react";
 import classes from "../Dialogs.module.scss";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPaperPlane} from "@fortawesome/free-solid-svg-icons";
+import {Field, reduxForm} from "redux-form";
 
 const DialogMessageForm = (props) => {
     return (
         <div className={classes.footer}>
-            <form onSubmit={props.sendMessageHandler}>
-                <input type="text" value={props.messageText}
-                       onChange={props.onInputMessageChangeHandler}
-                       placeholder="Enter your message..."
+            <form onSubmit={props.handleSubmit}>
+                <Field component={'input'}
+                        name={'messageText'}
+                        type="text"
+                        placeholder="Enter your message..."
                 />
                 <button><FontAwesomeIcon icon={faPaperPlane}/></button>
             </form>
@@ -17,4 +19,6 @@ const DialogMessageForm = (props) => {
     );
 };
 
-export default DialogMessageForm;
+export default reduxForm({
+    form: 'sendMessage'
+})(DialogMessageForm);

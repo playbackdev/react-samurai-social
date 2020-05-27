@@ -1,34 +1,21 @@
 import React from "react";
 import classes from './Posts.module.scss'
 import Post from "./Post/Post";
+import AddPostForm from "./Post/AddPostForm";
+import {reset} from 'redux-form';
 
 
 const Posts = (props) => {
 
-    const textAreaEl = React.createRef();
-
-    const addPostHandler = (e) => {
-        e.preventDefault();
-        if(textAreaEl.current.value === '') return 0;
-        props.addPostHandler();
-    };
-
-    const postTextChangeHandler = () => {
-        props.postTextChangeHandler(textAreaEl.current.value);
+    const addPostHandler = (formData, dispatch) => {
+        props.addPost(formData.newPostText);
+        dispatch(reset('AddPostProfile'));
     };
 
     return (
         <div className={classes.Posts}>
             <div className={classes.newPost}>
-                <form onSubmit={addPostHandler}>
-                    <textarea
-                        ref={textAreaEl}
-                        value={props.newPostText}
-                        onChange={postTextChangeHandler}
-                        placeholder="Write your new post..."
-                    />
-                    <button>Add post</button>
-                </form>
+                <AddPostForm onSubmit={addPostHandler}/>
             </div>
             {
                 props.posts.map(p => <Post key={p.id} id={p.id} message={p.text} likesCount={p.likesCount}/>)
