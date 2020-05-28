@@ -30,6 +30,10 @@ button {
     background-color: #323232;
     cursor: not-allowed;
   }
+
+  &:focus {
+    outline: 1px solid $color_blue_main;
+  }
 }
 
 input {
@@ -38,6 +42,9 @@ input {
   border: 1px solid #565656;
   padding: 8px;
   background-color: #303030;
+  &:focus {
+    outline: 1px solid $color_blue_main;
+  }
 }
 
 textarea {
@@ -46,6 +53,9 @@ textarea {
   border: 1px solid #565656;
   padding: 8px;
   background-color: #303030;
+  &:focus {
+    outline: 1px solid $color_blue_main;
+  }
 }
 
 .customCheckBox {

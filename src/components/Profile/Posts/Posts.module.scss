@@ -16,12 +16,18 @@
   form {
     display: flex;
     flex-flow: column nowrap;
-    textarea {
+    div {
+      display: flex;
+      flex-flow: column nowrap;
       align-self: stretch;
-      resize: none;
-      height: 50px;
-      @include customScrollbar;
+      textarea {
+        align-self: stretch;
+        resize: none;
+        height: 50px;
+        @include customScrollbar;
+      }
     }
+
     button {
       margin-top: 10px;
       align-self: flex-end;

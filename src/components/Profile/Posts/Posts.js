@@ -2,12 +2,24 @@ import React from "react";
 import classes from './Posts.module.scss'
 import Post from "./Post/Post";
 import AddPostForm from "./Post/AddPostForm";
-import {reset} from 'redux-form';
+import {reset, SubmissionError} from 'redux-form';
 
 
 const Posts = (props) => {
 
     const addPostHandler = (formData, dispatch) => {
+        //submit validation
+        if (!formData.newPostText || formData.newPostText.length === 0) {
+            throw new SubmissionError({
+                newPostText: 'Message can\'t be empty',
+                _error: 'Request failed'
+            });
+        } else if (formData.newPostText && formData.newPostText.length > 140) {
+            throw new SubmissionError({
+                newPostText: 'Message can\'t be more than 140 chars',
+                _error: 'Request failed'
+            });
+        }
         props.addPost(formData.newPostText);
         dispatch(reset('AddPostProfile'));
     };
