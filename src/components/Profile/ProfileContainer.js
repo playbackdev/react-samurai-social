@@ -10,7 +10,7 @@ import Preloader from "../UI/Preloader/Preloader";
 class ProfileContainer extends React.Component {
 
     componentDidMount() {
-        const userId = this.props.match.params.userId || this.props.auth.userId || 8332;
+        const userId = this.props.match.params.userId || this.props.auth.userId;
         this.props.fetchProfile(userId);
         this.props.fetchStatus(userId);
     }

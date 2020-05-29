@@ -6,7 +6,7 @@ import {faSignInAlt} from "@fortawesome/free-solid-svg-icons";
 import {ValidatedElement} from "../UI/FormValidation/FormValidation";
 import {maxLength, minLength, required} from "../../utils/validators/validators";
 
-const loginValidators = [required, maxLength(16)];
+const loginValidators = [required, maxLength(32)];
 const passwordValidators = [required, minLength(6)];
 
 const LoginForm = (props) => {
@@ -18,10 +18,10 @@ const LoginForm = (props) => {
                 <Field
                     component={ValidatedElement}
                     element={'input'}
-                    name={'login'}
+                    name={'email'}
                     type={'text'}
                     validate={loginValidators}
-                    placeholder={'Login'}/>
+                    placeholder={'Email'}/>
             </div>
             <div className={classes.FormItem}>
                 <Field
@@ -40,9 +40,11 @@ const LoginForm = (props) => {
                        label={'Remember me'}
                        type={"checkbox"}
                        name={'rememberMe'}
-                       validate={[required]}
                 />
             </div>
+            {props.error && <div className={classes.FormItem}>
+                {props.error}
+            </div>}
             <div className={classes.FormItem}>
                 <button
                     className={'blue'}
