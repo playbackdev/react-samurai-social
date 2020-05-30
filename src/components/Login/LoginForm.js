@@ -42,6 +42,18 @@ const LoginForm = (props) => {
                        name={'rememberMe'}
                 />
             </div>
+            {props.captchaUrl && <div className={classes.FormItem}>
+                <div>
+                    <img alt="" src={props.captchaUrl}/>
+                </div>
+                <Field
+                    component={ValidatedElement}
+                    element={'input'}
+                    name={'captcha'}
+                    type={'text'}
+                    validate={[required]}
+                    placeholder={'Enter captcha'}/>
+            </div>}
             {props.error && <div className={classes.FormItem}>
                 {props.error}
             </div>}

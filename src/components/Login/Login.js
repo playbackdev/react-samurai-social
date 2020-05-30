@@ -9,7 +9,8 @@ import {Redirect} from "react-router-dom";
 const Login = (props) => {
 
     const onSubmit = (formData, dispatch) => {
-        props.login(formData.email, formData.password, formData.rememberMe);
+        const captcha = formData.captcha || null;
+        props.login(formData.email, formData.password, formData.rememberMe, captcha);
         dispatch(reset('login'));
 
     };
@@ -21,13 +22,14 @@ const Login = (props) => {
     return (
         <div className={classes.Login}>
             <h3>Login</h3>
-            <LoginReduxForm onSubmit={onSubmit}/>
+            <LoginReduxForm captchaUrl={props.captchaUrl} onSubmit={onSubmit}/>
         </div>
     );
 };
 
 const mapStateToProps = state => ({
-    isAuth: state.auth.isAuth
+    isAuth: state.auth.isAuth,
+    captchaUrl: state.auth.captchaUrl
 });
 
 export default connect(mapStateToProps, {login, logout})(Login);
