@@ -1,6 +1,6 @@
 import React from "react";
 import {Field, reduxForm} from "redux-form";
-import {ValidatedElement} from "../../../UI/FormValidation/FormValidation";
+import {ValidatedElement} from "../../../UI/FormValidation/ValidatedElement";
 import {required} from "../../../../utils/validators/validators";
 
 //const validators = [required, maxLength(10)];

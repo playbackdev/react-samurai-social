@@ -3,14 +3,13 @@ import {Field, reduxForm} from "redux-form";
 import classes from './Login.module.scss';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSignInAlt} from "@fortawesome/free-solid-svg-icons";
-import {ValidatedElement} from "../UI/FormValidation/FormValidation";
+import {ValidatedElement} from "../UI/FormValidation/ValidatedElement";
 import {maxLength, minLength, required} from "../../utils/validators/validators";
 
 const loginValidators = [required, maxLength(32)];
 const passwordValidators = [required, minLength(6)];
 
 const LoginForm = (props) => {
-
 
     return (
         <form onSubmit={props.handleSubmit}>
@@ -42,6 +41,7 @@ const LoginForm = (props) => {
                        name={'rememberMe'}
                 />
             </div>
+            {/*Каптча*/}
             {props.captchaUrl && <div className={classes.FormItem}>
                 <div>
                     <img alt="" src={props.captchaUrl}/>
@@ -54,11 +54,13 @@ const LoginForm = (props) => {
                     validate={[required]}
                     placeholder={'Enter captcha'}/>
             </div>}
-            {props.error && <div className={classes.FormItem}>
+            {/*Ошибки валидации формы*/}
+            {props.error && <div className={classes.FormItem + ' ' + classes.error}>
                 {props.error}
             </div>}
+            {/*Кнопка сабмита формы*/}
             <div className={classes.FormItem}>
-                <button
+                <button disabled={props.submitting}
                     className={'blue'}
                 >
                     <FontAwesomeIcon icon={faSignInAlt}/>&nbsp;

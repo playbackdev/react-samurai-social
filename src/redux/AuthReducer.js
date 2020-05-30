@@ -88,6 +88,7 @@ export const login = (email, password, rememberMe, captcha = null) => dispatch =
                 const errorText = data.messages.length > 0 ? data.messages.join(', ') : 'Server error';
                 dispatch(stopSubmit("login", {_error: errorText}));
             }
+            dispatch(stopSubmit('login'));
         })
 };
 

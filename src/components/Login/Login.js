@@ -1,7 +1,7 @@
 import React from "react";
 import LoginReduxForm from "./LoginForm";
 import classes from './Login.module.scss';
-import {reset} from 'redux-form';
+import {startSubmit} from 'redux-form';
 import {connect} from "react-redux";
 import {login, logout} from "../../redux/AuthReducer";
 import {Redirect} from "react-router-dom";
@@ -9,10 +9,9 @@ import {Redirect} from "react-router-dom";
 const Login = (props) => {
 
     const onSubmit = (formData, dispatch) => {
+        dispatch(startSubmit('login'));
         const captcha = formData.captcha || null;
         props.login(formData.email, formData.password, formData.rememberMe, captcha);
-        dispatch(reset('login'));
-
     };
 
     if(props.isAuth) {

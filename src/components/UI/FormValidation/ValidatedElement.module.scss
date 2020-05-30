@@ -1,0 +1,26 @@
+@import '../vars';
+
+.ValidatedElement {
+  display: flex;
+  flex-flow: column nowrap;
+  &.error {
+    :first-child {
+      border: 1px solid $color_red_main;
+      box-shadow: 0 0 2px 2px $color_red_light;
+    }
+    span {
+      font-size: 0.8em;
+      padding: 4px;
+      color: $color_red_light;
+    }
+    label {
+      color: $color_red_light;
+
+      &::before {
+        border: 1px solid $color_red_light;
+      }
+    }
+  }
+
+
+}

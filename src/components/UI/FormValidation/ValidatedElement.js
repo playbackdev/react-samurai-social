@@ -1,9 +1,9 @@
 import React from "react";
-import classes from "./FormValidation.module.scss"
+import classes from "./ValidatedElement.module.scss"
 
 //остаточные параметры
 export const ValidatedElement = ({input, meta, element, ...props}) => {
-    const cls = [classes.ValidationElement];
+    const cls = [classes.ValidatedElement];
     if(meta.invalid && meta.error && (meta.touched || meta.submitFailed)) {
         cls.push(classes.error);
     }

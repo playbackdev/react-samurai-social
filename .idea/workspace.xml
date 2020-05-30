@@ -2,39 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c278fb4a-907a-4f4c-be94-e57ec3111156" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Login/Login.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Login/LoginForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Profile/Posts/Post/AddPostForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/UI/style.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/UI/vars.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/DialogMessageForm/DialogMessageForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/DialogMessageForm/DialogMessageForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/Dialogs.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dialogs/DialogsContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/Navbar.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/Posts/Posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Posts/Posts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/Posts/Posts.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Posts/Posts.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/Posts/PostsContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Posts/PostsContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileHeader/ProfileStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileHeader/ProfileStatus.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileHeader/ProfileStatus.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileHeader/ProfileStatus.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UI/Button/Button.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UI/Button/Button.module.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Users/UserItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/UserItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hoc/withAuthRedirect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/withAuthRedirect.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/DialogsReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/DialogsReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/ProfileReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/ProfileReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reduxStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reduxStore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/buttons.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/mixins.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Login/Login.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/Login.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Login/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/LoginForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/Posts/Post/AddPostForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Posts/Post/AddPostForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/FormValidation/FormValidation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/FormValidation/ValidatedElement.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/FormValidation/FormValidation.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/FormValidation/ValidatedElement.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/AuthReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/AuthReducer.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,13 +20,19 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="SCSS File" />
         <option value="JavaScript File" />
+        <option value="SCSS File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
   </component>
   <component name="ProjectId" id="1bivVLIPKFm2SsNNxu5eXUbCmlP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -114,7 +95,11 @@
       <workItem from="1590331778100" duration="9480000" />
       <workItem from="1590419582123" duration="13602000" />
       <workItem from="1590517590878" duration="8497000" />
-      <workItem from="1590598152926" duration="7480000" />
+      <workItem from="1590598152926" duration="8560000" />
+      <workItem from="1590679048565" duration="8220000" />
+      <workItem from="1590688469113" duration="4290000" />
+      <workItem from="1590776593450" duration="7932000" />
+      <workItem from="1590826971735" duration="5528000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1589915525226</created>
@@ -158,7 +143,35 @@
       <option name="project" value="LOCAL" />
       <updated>1590439978498</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="refactoring, redux-form">
+      <created>1590605785384</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1590605785384</updated>
+    </task>
+    <task id="LOCAL-00008" summary="redux-form validation &amp; validation field component">
+      <created>1590693886622</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1590693886622</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Login, logout">
+      <created>1590786356287</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1590786356287</updated>
+    </task>
+    <task id="LOCAL-00010" summary="captcha">
+      <created>1590829513875</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1590829513875</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,6 +197,10 @@
     <MESSAGE value="Follow, Unfollow" />
     <MESSAGE value="redux-thunk" />
     <MESSAGE value="Profile status fetch/update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Profile status fetch/update" />
+    <MESSAGE value="refactoring, redux-form" />
+    <MESSAGE value="redux-form validation &amp; validation field component" />
+    <MESSAGE value="Login, logout" />
+    <MESSAGE value="captcha" />
+    <option name="LAST_COMMIT_MESSAGE" value="captcha" />
   </component>
 </project>
