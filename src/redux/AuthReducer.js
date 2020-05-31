@@ -59,20 +59,18 @@ export const clearCaptcha = () => {
 };
 
 //thunks
-export const authMe = () => {
-    return (dispatch) => {
-        dispatch(setIsFetching(true));
-        API.authMe().then(data => {
-            if (data.resultCode === 0) {
-                dispatch(setAuthUserData(
-                    data.data.id,
-                    data.data.email,
-                    data.data.login,
-                    true));
-            }
-            dispatch(setIsFetching(false));
-        });
-    };
+export const authMe = () => dispatch => {
+    dispatch(setIsFetching(true));
+    return API.authMe().then(data => {
+        if (data.resultCode === 0) {
+            dispatch(setAuthUserData(
+                data.data.id,
+                data.data.email,
+                data.data.login,
+                true));
+        }
+        dispatch(setIsFetching(false));
+    });
 };
 
 export const login = (email, password, rememberMe, captcha = null) => dispatch => {

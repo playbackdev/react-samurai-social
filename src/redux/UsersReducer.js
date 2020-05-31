@@ -2,21 +2,21 @@ import {API} from "../api/api";
 
 const USER_FOLLOW = 'USER_FOLLOW';
 const USER_UNFOLLOW = 'USER_UNFOLLOW';
-const FETCH_USERS = 'FETCH_USERS';
+const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
-const SET_USERS_IS_FETCHING = 'SET_USERS_IS_FETCHING';
+const SET_USERS_ARE_FETCHING = 'SET_USERS_ARE_FETCHING';
 
 const initialState = {
     users: [],
     pageSize: 10,
     totalUsersCount: 0,
     currentPage: 1,
-    isFetching: false
+    areUsersFetching: false
 };
 
 const usersReducer = (state = initialState, action) => {
     switch(action.type) {
-        case FETCH_USERS:
+        case SET_USERS:
             return {
                 ...state,
                 users: [...action.users],
@@ -49,10 +49,10 @@ const usersReducer = (state = initialState, action) => {
                         }: user;
                 })
             };
-        case SET_USERS_IS_FETCHING:
+        case SET_USERS_ARE_FETCHING:
             return {
                 ...state,
-                isFetching: action.isFetching
+                areUsersFetching: action.areUsersFetching
 
             };
         default:
@@ -69,29 +69,28 @@ export const unfollowSuccess = (userId) => {
     return {type: USER_UNFOLLOW, userId};
 };
 
-export const fetchUsers = (users, totalCount) => {
-    return {type: FETCH_USERS, users, totalCount};
+export const setUsers = (users, totalCount) => {
+    return {type: SET_USERS, users, totalCount};
 };
 
 export const setCurrentPage = (currentPage) => {
     return {type: SET_CURRENT_PAGE, currentPage}
 };
 
-export const setIsFetching = (isFetching) => {
-    return {type: SET_USERS_IS_FETCHING, isFetching}
+export const setUsersAreFetching = (areUsersFetching) => {
+    return {type: SET_USERS_ARE_FETCHING, areUsersFetching}
 };
 
 //thunks
-export const getUsers = (page, pageSize) => {
+export const fetchUsers = (page, pageSize) => {
     return (dispatch) => {
-        dispatch(setIsFetching(true));
+        dispatch(setUsersAreFetching(true));
         API.getUsers(page, pageSize)
             .then(data => {
-                dispatch(fetchUsers(data.items, data.totalCount));
+                dispatch(setUsers(data.items, data.totalCount));
                 dispatch(setCurrentPage(page));
-                dispatch(setIsFetching(false));
+                dispatch(setUsersAreFetching(false));
             });
-
     };
 };
 

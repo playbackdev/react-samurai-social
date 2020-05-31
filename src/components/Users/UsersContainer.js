@@ -1,14 +1,15 @@
 import React from "react";
 import {connect} from "react-redux";
-import {followUser, getUsers, unfollowUser} from "../../redux/UsersReducer";
+import {fetchUsers, followUser, unfollowUser} from "../../redux/UsersReducer";
 import Users from "./Users";
 import {compose} from "redux";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
+
 class UsersContainer extends React.Component {
 
     componentDidMount() {
-        this.props.getUsers(this.props.currentPage, this.props.pageSize);
+        this.props.fetchUsers(this.props.currentPage, this.props.pageSize);
     }
 
     followUser = (userId, callback) => {
@@ -20,7 +21,7 @@ class UsersContainer extends React.Component {
     };
 
     onPageChanged = (pageNum) => {
-        this.props.getUsers(pageNum, this.props.pageSize);
+        this.props.fetchUsers(pageNum, this.props.pageSize);
     };
 
     render() {
@@ -33,7 +34,7 @@ class UsersContainer extends React.Component {
                 followUser={this.followUser}
                 unfollowUser={this.unfollowUser}
                 onPageChanged={this.onPageChanged}
-                isFetching={this.props.isFetching}
+                areUsersFetching={this.props.areUsersFetching}
             />
         );
     }
@@ -46,14 +47,14 @@ const mapStateToProps = (state) => {
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching
+        areUsersFetching: state.usersPage.areUsersFetching
     };
 };
 
 const mapDispatchToProps = {
     followUser,
     unfollowUser,
-    getUsers
+    fetchUsers
 };
 
 //export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);

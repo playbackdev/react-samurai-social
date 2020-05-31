@@ -5,7 +5,6 @@ import Paginator from "../UI/Paginator/Paginator";
 import Preloader from "../UI/Preloader/Preloader";
 
 const Users = (props) => {
-
     const followUser = (userId, callback) => {
         props.followUser(userId, callback);
     };
@@ -28,12 +27,12 @@ const Users = (props) => {
                 <p>Всего найдено пользователей: {props.totalUsersCount}</p>
             :null}
             <Paginator
-                isFetching={props.isFetching}
+                isFetching={props.areUsersFetching}
                 currentPage={props.currentPage}
                 pagesCount={pages}
                 onPageChanged={onPageChanged}
             />
-            {props.isFetching ? <Preloader/> :
+            {props.areUsersFetching ? <Preloader/> :
                 <div className={classes.usersList}>
                     {
                         props.users.map((user) => {
@@ -71,6 +70,7 @@ const Users = (props) => {
                 </div>
             }
             <Paginator
+                isFetching={props.areUsersFetching}
                 currentPage={props.currentPage}
                 pagesCount={pages}
                 onPageChanged={onPageChanged}

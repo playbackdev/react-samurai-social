@@ -1,7 +1,7 @@
 import React from "react";
 import classes from './ProfileHeader.module.scss'
 import UserPhotoSmall from '../../../assets/img/userPhotoSmall.png'
-import ProfileStatus from "./ProfileStatus";
+import ProfileStatus from "./ProfileStatusHooks";
 
 const ProfileHeader = (props) => {
     return (

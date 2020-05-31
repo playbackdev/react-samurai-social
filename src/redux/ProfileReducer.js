@@ -6,7 +6,7 @@ const SET_PROFILE_IS_FETCHING = 'SET_PROFILE_IS_FETCHING';
 const SET_STATUS = 'SET_STATUS';
 
 const initialState = {
-    isFetching: false,
+    isProfileFetching: false,
     profile: null,
     status: '',
     posts: [
@@ -37,7 +37,7 @@ const profileReducer = (state = initialState, action) => {
             };
         case SET_PROFILE_IS_FETCHING:
             return {
-                ...state, isFetching: action.isFetching
+                ...state, isProfileFetching: action.isProfileFetching
             };
         case SET_STATUS:
             return {
@@ -59,8 +59,8 @@ export const addPost = (newPostText) => {
     return {type: ADD_POST, newPostText};
 };
 
-export const setIsFetching = isFetching => {
-    return { type: SET_PROFILE_IS_FETCHING, isFetching}
+export const setIsProfileFetching = isProfileFetching => {
+    return { type: SET_PROFILE_IS_FETCHING, isProfileFetching}
 };
 
 export const setStatus = status => {
@@ -72,11 +72,11 @@ export const setStatus = status => {
 //thunks
 export const fetchProfile = (userId) => {
     return (dispatch) => {
-        dispatch(setIsFetching(true));
+        dispatch(setIsProfileFetching(true));
         API.fetchProfile(userId)
             .then(data => {
                 dispatch(fetchProfileSuccess(data));
-                dispatch(setIsFetching(false));
+                dispatch(setIsProfileFetching(false));
             });
 
     };
