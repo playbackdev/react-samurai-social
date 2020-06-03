@@ -1,10 +1,10 @@
 import {API} from "../api/api";
 import {stopSubmit} from "redux-form";
 
-const SET_AUTH_IS_FETCHING = 'SET_AUTH_IS_FETCHING';
-const FETCH_USER_DATA = 'FETCH_USER_DATA';
-const SET_CAPTCHA = 'SET_CAPTCHA';
-const CLEAR_CAPTCHA = 'CLEAR_CAPTCHA';
+const SET_AUTH_IS_FETCHING = 'auth/SET_AUTH_IS_FETCHING';
+const FETCH_USER_DATA = 'auth/FETCH_USER_DATA';
+const SET_CAPTCHA = 'auth/SET_CAPTCHA';
+const CLEAR_CAPTCHA = 'auth/CLEAR_CAPTCHA';
 
 const initialState = {
     isFetching: false,
@@ -59,47 +59,46 @@ export const clearCaptcha = () => {
 };
 
 //thunks
-export const authMe = () => dispatch => {
+export const authMe = () => async (dispatch) => {
     dispatch(setIsFetching(true));
-    return API.authMe().then(data => {
-        if (data.resultCode === 0) {
-            dispatch(setAuthUserData(
-                data.data.id,
-                data.data.email,
-                data.data.login,
-                true));
+    const response = await API.authMe();
+    if (response.resultCode === 0) {
+        dispatch(setAuthUserData(
+            response.data.id,
+            response.data.email,
+            response.data.login,
+            true));
+    }
+    dispatch(setIsFetching(false));
+};
+
+export const login = (email, password, rememberMe, captcha = null) => async dispatch => {
+    const data = await API.login(email, password, rememberMe, captcha);
+    if (data.resultCode === 0) {
+        dispatch(authMe());
+        if (captcha) {
+            dispatch(clearCaptcha());
         }
-        dispatch(setIsFetching(false));
-    });
+    } else if (data.resultCode === 10) {
+        const errorText = data.messages.length > 0 ? data.messages.join(', ') : 'Server error';
+        dispatch(stopSubmit("login", {_error: errorText}));
+        API.getCaptchaUrl()
+            .then(data => dispatch(setCaptcha(data.url)));
+    } else {
+        const errorText = data.messages.length > 0 ? data.messages.join(', ') : 'Server error';
+        dispatch(stopSubmit("login", {_error: errorText}));
+    }
+    //dispatch(stopSubmit('login'));
 };
 
-export const login = (email, password, rememberMe, captcha = null) => dispatch => {
-    API.login(email, password, rememberMe, captcha)
-        .then(data => {
-            if(data.resultCode === 0) {
-                dispatch(authMe());
-                if(captcha) { dispatch(clearCaptcha()); }
-            } else if(data.resultCode === 10) {
-                API.getCaptchaUrl()
-                    .then(data => dispatch(setCaptcha(data.url)));
-            } else {
-                const errorText = data.messages.length > 0 ? data.messages.join(', ') : 'Server error';
-                dispatch(stopSubmit("login", {_error: errorText}));
-            }
-            dispatch(stopSubmit('login'));
-        })
-};
-
-export const logout = () => dispatch => {
-    API.logout()
-        .then(data => {
-            if(data.resultCode === 0) {
-                dispatch(setAuthUserData(
-                    null,
-                    null,
-                    null,
-                    false));
-            }
-        })
+export const logout = () => async (dispatch) => {
+    const data = await API.logout()
+    if (data.resultCode === 0) {
+        dispatch(setAuthUserData(
+            null,
+            null,
+            null,
+            false));
+    }
 };
 

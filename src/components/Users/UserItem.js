@@ -11,15 +11,14 @@ const UserItem = (props) => {
 
     const followUser = () => {
         setFetchingFollow(true);
-        props.followUser(props.id, () => {
+        props.toggleFollowUser(props.id, true, () => {
             setFetchingFollow(false);
         });
-
     };
 
     const unfollowUser = () => {
         setFetchingFollow(true);
-        props.unfollowUser(props.id, () => {
+        props.toggleFollowUser(props.id, false, () => {
             setFetchingFollow(false);
         });
 

@@ -79,35 +79,23 @@ export const setStatus = status => {
 
 
 //thunks
-export const fetchProfile = (userId) => {
-    return (dispatch) => {
-        dispatch(setIsProfileFetching(true));
-        API.fetchProfile(userId)
-            .then(data => {
-                dispatch(fetchProfileSuccess(data));
-                dispatch(setIsProfileFetching(false));
-            });
+export const fetchProfile = (userId) => async (dispatch) => {
+    dispatch(setIsProfileFetching(true));
+    const data = await API.fetchProfile(userId);
+    dispatch(fetchProfileSuccess(data));
+    dispatch(setIsProfileFetching(false));
 
-    };
 };
 
-export const fetchStatus = (userId) => {
-    return (dispatch) => {
-        API.fetchStatus(userId)
-            .then(data => {
-                dispatch(setStatus(data));
-            });
-    };
+export const fetchStatus = (userId) => async (dispatch) => {
+    const data = await API.fetchStatus(userId);
+    dispatch(setStatus(data));
 };
 
-export const updateStatus = (status) => {
-    return (dispatch) => {
-        API.updateStatus(status)
-            .then(data => {
-                if(data.resultCode === 0) {
-                    dispatch(setStatus(status));
-                }
-            });
-
-    };
+export const updateStatus = (status) => async dispatch => {
+    const data = await API.updateStatus(status);
+    if (data.resultCode === 0) {
+        dispatch(setStatus(status));
+    }
 };
+

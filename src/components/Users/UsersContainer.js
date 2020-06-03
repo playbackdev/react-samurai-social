@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {fetchUsers, followUser, unfollowUser} from "../../redux/UsersReducer";
+import {fetchUsers, toggleFollowUser} from "../../redux/UsersReducer";
 import Users from "./Users";
 import {compose} from "redux";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
@@ -12,12 +12,8 @@ class UsersContainer extends React.Component {
         this.props.fetchUsers(this.props.currentPage, this.props.pageSize);
     }
 
-    followUser = (userId, callback) => {
-        this.props.followUser(userId, callback);
-    };
-
-    unfollowUser = (userId, callback) => {
-        this.props.unfollowUser(userId, callback);
+    toggleFollowUser = (userId, follow, callback) => {
+        this.props.toggleFollowUser(userId, follow, callback);
     };
 
     onPageChanged = (pageNum) => {
@@ -31,8 +27,7 @@ class UsersContainer extends React.Component {
                 currentPage={this.props.currentPage}
                 totalUsersCount={this.props.totalUsersCount}
                 pageSize={this.props.pageSize}
-                followUser={this.followUser}
-                unfollowUser={this.unfollowUser}
+                toggleFollowUser={this.toggleFollowUser}
                 onPageChanged={this.onPageChanged}
                 areUsersFetching={this.props.areUsersFetching}
             />
@@ -52,8 +47,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-    followUser,
-    unfollowUser,
+    toggleFollowUser,
     fetchUsers
 };
 

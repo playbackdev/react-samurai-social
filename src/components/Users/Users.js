@@ -5,18 +5,6 @@ import Paginator from "../UI/Paginator/Paginator";
 import Preloader from "../UI/Preloader/Preloader";
 
 const Users = (props) => {
-    const followUser = (userId, callback) => {
-        props.followUser(userId, callback);
-    };
-
-    const unfollowUser = (userId, callback) => {
-        props.unfollowUser(userId, callback);
-    };
-
-    const onPageChanged = (pageNum) => {
-        props.onPageChanged(pageNum);
-
-    };
 
     let pages = Math.ceil(props.totalUsersCount / props.pageSize);
 
@@ -30,7 +18,7 @@ const Users = (props) => {
                 isFetching={props.areUsersFetching}
                 currentPage={props.currentPage}
                 pagesCount={pages}
-                onPageChanged={onPageChanged}
+                onPageChanged={props.onPageChanged}
             />
             {props.areUsersFetching ? <Preloader/> :
                 <div className={classes.usersList}>
@@ -45,8 +33,7 @@ const Users = (props) => {
                                     followed={user.followed}
                                     status={user.status}
                                     location={'user.location'}
-                                    followUser={followUser}
-                                    unfollowUser={unfollowUser}
+                                    toggleFollowUser={props.toggleFollowUser}
                                 />
                             )
                         })
@@ -73,7 +60,7 @@ const Users = (props) => {
                 isFetching={props.areUsersFetching}
                 currentPage={props.currentPage}
                 pagesCount={pages}
-                onPageChanged={onPageChanged}
+                onPageChanged={props.onPageChanged}
             />
         </div>
     );
