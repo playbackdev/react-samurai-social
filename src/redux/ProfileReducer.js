@@ -1,6 +1,7 @@
 import {API} from "../api/api";
 
 const ADD_POST = 'ADD_POST';
+const DELETE_POST = 'DELETE_POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_PROFILE_IS_FETCHING = 'SET_PROFILE_IS_FETCHING';
 const SET_STATUS = 'SET_STATUS';
@@ -35,6 +36,10 @@ const profileReducer = (state = initialState, action) => {
                     }
                 ]
             };
+        case DELETE_POST:
+            return {
+                ...state, posts: state.posts.filter(p => p.id !== action.postId)
+            };
         case SET_PROFILE_IS_FETCHING:
             return {
                 ...state, isProfileFetching: action.isProfileFetching
@@ -57,6 +62,10 @@ export const fetchProfileSuccess = profile => {
 
 export const addPost = (newPostText) => {
     return {type: ADD_POST, newPostText};
+};
+
+export const deletePost = (postId) => {
+    return {type: DELETE_POST, postId};
 };
 
 export const setIsProfileFetching = isProfileFetching => {
