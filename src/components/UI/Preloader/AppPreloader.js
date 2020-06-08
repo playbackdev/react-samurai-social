@@ -6,7 +6,6 @@ const AppPreloader = () => {
     return (
         <div className={classes.AppPreloader}>
             <div className={classes.loader}>
-                <p>Loading...</p>
                 <Preloader/>
             </div>
         </div>
