@@ -1,3 +1,8 @@
+## Github Pages Deployment available at:
+
+https://playbackdev.github.io/react-samurai-social/
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
