@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/react-samurai-social/static/css/main.2d64c9d9.chunk.css",
-    "main.js": "/react-samurai-social/static/js/main.fc91409d.chunk.js",
-    "main.js.map": "/react-samurai-social/static/js/main.fc91409d.chunk.js.map",
+    "main.js": "/react-samurai-social/static/js/main.08a0f7fa.chunk.js",
+    "main.js.map": "/react-samurai-social/static/js/main.08a0f7fa.chunk.js.map",
     "runtime-main.js": "/react-samurai-social/static/js/runtime-main.a60ee05c.js",
     "runtime-main.js.map": "/react-samurai-social/static/js/runtime-main.a60ee05c.js.map",
     "static/js/2.387fd781.chunk.js": "/react-samurai-social/static/js/2.387fd781.chunk.js",
@@ -19,7 +19,7 @@
     "static/js/6.fc609116.chunk.js": "/react-samurai-social/static/js/6.fc609116.chunk.js",
     "static/js/6.fc609116.chunk.js.map": "/react-samurai-social/static/js/6.fc609116.chunk.js.map",
     "index.html": "/react-samurai-social/index.html",
-    "precache-manifest.042cdbdeb2273684d4e3b1f2533b38ab.js": "/react-samurai-social/precache-manifest.042cdbdeb2273684d4e3b1f2533b38ab.js",
+    "precache-manifest.c85023133f3c0047635e98479058c3b9.js": "/react-samurai-social/precache-manifest.c85023133f3c0047635e98479058c3b9.js",
     "service-worker.js": "/react-samurai-social/service-worker.js",
     "static/css/3.ba01dcba.chunk.css.map": "/react-samurai-social/static/css/3.ba01dcba.chunk.css.map",
     "static/css/4.1fd0ab8b.chunk.css.map": "/react-samurai-social/static/css/4.1fd0ab8b.chunk.css.map",
@@ -33,6 +33,6 @@
     "static/js/runtime-main.a60ee05c.js",
     "static/js/2.387fd781.chunk.js",
     "static/css/main.2d64c9d9.chunk.css",
-    "static/js/main.fc91409d.chunk.js"
+    "static/js/main.08a0f7fa.chunk.js"
   ]
 }
