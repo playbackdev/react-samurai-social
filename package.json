@@ -2,7 +2,7 @@
   "name": "react-samurai-social",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://playbackdev.github.io/react-samurai-social/",
+  "homepage": "https://playbackdev.github.io/react-samurai-social",
   "dependencies": {
     "@csstools/normalize.css": "^10.1.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
