@@ -48,6 +48,16 @@ export const API = {
     getCaptchaUrl: () => {
         return axiosInstance.get(`security/get-captcha-url`)
             .then(response => response.data);
-    }
+    },
+    saveAvatar: (file) => {
+        let formData = new FormData();
+        formData.append("image", file);
+        return axiosInstance.put(`profile/photo`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }).then(response => response.data);
+    },
+
 };
 

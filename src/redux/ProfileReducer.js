@@ -5,6 +5,7 @@ const DELETE_POST = 'DELETE_POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_PROFILE_IS_FETCHING = 'SET_PROFILE_IS_FETCHING';
 const SET_STATUS = 'SET_STATUS';
+const SET_AVATAR_SUCCESS = 'SET_AVATAR_SUCCESS';
 
 const initialState = {
     isProfileFetching: false,
@@ -49,6 +50,14 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 status: action.status
             };
+        case SET_AVATAR_SUCCESS:
+            return {
+                ...state,
+                profile: {
+                    ...state.profile,
+                    photos: action.photos
+                }
+            };
         default:
             return state;
     }
@@ -76,6 +85,10 @@ export const setStatus = status => {
     return { type: SET_STATUS, status}
 };
 
+export const saveAvatarSuccess = photos => {
+    return { type: SET_AVATAR_SUCCESS, photos}
+};
+
 
 
 //thunks
@@ -96,6 +109,13 @@ export const updateStatus = (status) => async dispatch => {
     const data = await API.updateStatus(status);
     if (data.resultCode === 0) {
         dispatch(setStatus(status));
+    }
+};
+
+export const saveAvatar = (avatar) => async dispatch => {
+    const data = await API.saveAvatar(avatar);
+    if (data.resultCode === 0) {
+        dispatch(saveAvatarSuccess(data.data.photos));
     }
 };
 

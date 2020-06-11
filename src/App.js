@@ -33,8 +33,7 @@ class App extends Component {
                         <Suspense fallback={<AppPreloader/>}>
                             {/*Знак ? в конце пути означает, что параметр опциональный,
                                 роут будет работать и без него*/}
-                            <Route exact path='/profile/:userId' render={() => <ProfileContainer/>}/>
-                            <Route exact path='/profile/' render={() => <ProfileContainer/>}/>
+                            <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
                             <Route path='/dialogs' render={() => <DialogsContainer/>}/>
                             <Route path='/users' component={UsersContainer}/>
                             <Route path='/news' component={News}/>

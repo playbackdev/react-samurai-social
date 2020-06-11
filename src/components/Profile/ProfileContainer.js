@@ -1,6 +1,6 @@
 import React from "react";
 import Profile from "./Profile";
-import {fetchProfile, fetchStatus, setIsProfileFetching, updateStatus} from "../../redux/ProfileReducer";
+import {fetchProfile, fetchStatus, saveAvatar, setIsProfileFetching, updateStatus} from "../../redux/ProfileReducer";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
@@ -9,10 +9,23 @@ import Preloader from "../UI/Preloader/Preloader";
 
 class ProfileContainer extends React.Component {
 
-    componentDidMount() {
-        const userId = this.props.match.params.userId || this.props.auth.userId;
+    loadProfile = () => {
+        const userId = this.props.match.params.userId || this.props.auth.userId || null;
+        if(!userId) {
+            this.props.history.push("/login");
+        }
         this.props.fetchProfile(userId);
         this.props.fetchStatus(userId);
+    };
+
+    componentDidMount() {
+        this.loadProfile();
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(prevProps.match.params.userId !== this.props.match.params.userId) {
+            this.loadProfile();
+        }
     }
 
     render() {
@@ -37,7 +50,8 @@ const mapDispatchToProps = {
     fetchProfile,
     fetchStatus,
     updateStatus,
-    setIsProfileFetching
+    setIsProfileFetching,
+    saveAvatar
 };
 
 

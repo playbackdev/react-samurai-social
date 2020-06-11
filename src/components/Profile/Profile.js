@@ -8,10 +8,12 @@ const Profile = (props) => {
     return (
         <div className={classes.content}>
             <ProfileHeader
+                isOwnProfile={!props.match.params.userId}
                 fullName={props.profile.fullName}
                 avatar={props.profile.photos.large}
                 status={props.status}
                 updateStatus={props.updateStatus}
+                saveAvatar={props.saveAvatar}
             />
             <div className={classes.profileContent}>
                 <ProfileInfo profile={props.profile}/>

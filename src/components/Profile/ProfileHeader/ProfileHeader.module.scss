@@ -1,3 +1,5 @@
+@import "../../UI/vars";
+
 .profileHeader {
   flex: 1;
 
@@ -27,7 +29,55 @@
     border: 4px solid #323232;
   }
 
+  .loadAvatar {
+    position: absolute;
+    top: 235px;
+    left: 50%;
+    margin-left: 40px;
+    input {
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      z-index: -1;
+    }
+    label {
+      padding: 3px 8px 5px 8px;
+      font-size: 1.5em;
+      line-height: 1em;
+      color: white;
+      background-color: #4b4b4b;
+      border: 1px solid #323232;
+      border-radius: 20px;
+      transition: all .3s;
+      opacity: 40%;
+      &.loading {
+        color: #CCCCCC;
+        svg {
+          animation: spinnerPhotoLoad 2s linear infinite;
+        }
+      }
+    }
+    input:focus + label,
+    input + label:hover {
+      opacity: 100%;
+      color: $color_blue_main;
+      background-color: #4a4a4a;
+    }
+  }
+
   h1 {
     margin: 20px 20px 10px 20px;
   }
+}
+
+@keyframes spinnerPhotoLoad {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+
 }
