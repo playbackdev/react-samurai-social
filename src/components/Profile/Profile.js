@@ -16,7 +16,11 @@ const Profile = (props) => {
                 saveAvatar={props.saveAvatar}
             />
             <div className={classes.profileContent}>
-                <ProfileInfo profile={props.profile}/>
+                <ProfileInfo
+                    isOwnProfile={!props.match.params.userId}
+                    profile={props.profile}
+                    saveProfileInfo={props.saveProfileInfo}
+                />
                 <PostsContainer/>
             </div>
         </div>

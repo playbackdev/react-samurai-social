@@ -1,6 +1,13 @@
 import React from "react";
 import Profile from "./Profile";
-import {fetchProfile, fetchStatus, saveAvatar, setIsProfileFetching, updateStatus} from "../../redux/ProfileReducer";
+import {
+    fetchProfile,
+    fetchStatus,
+    saveAvatar,
+    saveProfileInfo,
+    setIsProfileFetching,
+    updateStatus
+} from "../../redux/ProfileReducer";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
@@ -29,6 +36,8 @@ class ProfileContainer extends React.Component {
     }
 
     render() {
+        //если убрать проверку на isProfileFetching, профиль будет обновляться при изменении информации
+        //без крутилки прелоадера.
         if(this.props.isProfileFetching || !this.props.profile) return <Preloader/>;
         return (
             <Profile {...this.props} />
@@ -51,7 +60,8 @@ const mapDispatchToProps = {
     fetchStatus,
     updateStatus,
     setIsProfileFetching,
-    saveAvatar
+    saveAvatar,
+    saveProfileInfo
 };
 
 

@@ -1,4 +1,5 @@
 import {API} from "../api/api";
+import {stopSubmit} from "redux-form";
 
 const ADD_POST = 'ADD_POST';
 const DELETE_POST = 'DELETE_POST';
@@ -116,6 +117,48 @@ export const saveAvatar = (avatar) => async dispatch => {
     const data = await API.saveAvatar(avatar);
     if (data.resultCode === 0) {
         dispatch(saveAvatarSuccess(data.data.photos));
+    }
+};
+
+export const saveProfileInfo = (profile) => async (dispatch, getState) => {
+    const userId = getState().auth.userId;
+    const data = await API.saveProfileInfo(profile);
+    if (data.resultCode === 0) {
+        dispatch(fetchProfile(userId));
+    } else {
+        const errorFormText = data.messages.length > 0 ? data.messages.join(', ') : 'Server error';
+
+        let fieldErrors = {};
+        for(let i = 0; i < data.messages.length; i++) {
+            if(data.messages[i].includes('Facebook')) {
+                fieldErrors["contacts"] = {...fieldErrors["contacts"], "facebook": "Invalid link format"};
+            }
+            if(data.messages[i].includes('Website')) {
+                fieldErrors["contacts"] = {...fieldErrors["contacts"], "website": "Invalid link format"};
+            }
+            if(data.messages[i].includes('Instagram')) {
+                fieldErrors["contacts"] = {...fieldErrors["contacts"], "instagram": "Invalid link format"};
+            }
+            if(data.messages[i].includes('Vk')) {
+                fieldErrors["contacts"] = {...fieldErrors["contacts"], "vk": "Invalid link format"};
+            }
+            if(data.messages[i].includes('Youtube')) {
+                fieldErrors["contacts"] = {...fieldErrors["contacts"], "youtbe": "Invalid link format"};
+            }
+            if(data.messages[i].includes('Github')) {
+                fieldErrors["contacts"] = {...fieldErrors["contacts"], "github": "Invalid link format"};
+            }
+            if(data.messages[i].includes('MainLink')) {
+                fieldErrors["contacts"] = {...fieldErrors["contacts"], "mainLink": "Invalid link format"};
+            }
+            if(data.messages[i].includes('Twitter')) {
+                fieldErrors["contacts"] = {...fieldErrors["contacts"], "twitter": "Invalid link format"};
+            }
+        }
+
+        dispatch(stopSubmit("profileInfoEdit", {_error: errorFormText, ...fieldErrors}));
+
+        return Promise.reject(errorFormText);
     }
 };
 

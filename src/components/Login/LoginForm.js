@@ -60,7 +60,7 @@ const LoginForm = (props) => {
             </div>}
             {/*Кнопка сабмита формы*/}
             <div className={classes.FormItem}>
-                <button disabled={props.submitting}
+                <button type={"submit"} disabled={props.submitting}
                     className={'blue'}
                 >
                     <FontAwesomeIcon icon={faSignInAlt}/>&nbsp;

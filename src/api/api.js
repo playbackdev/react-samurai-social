@@ -58,6 +58,9 @@ export const API = {
             }
         }).then(response => response.data);
     },
+    saveProfileInfo: (profile) => {
+        return axiosInstance.put(`profile`, profile).then(response => response.data);
+    },
 
 };
 
