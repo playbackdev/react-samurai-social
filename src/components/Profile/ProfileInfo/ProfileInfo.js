@@ -3,6 +3,7 @@ import classes from './ProfileInfo.module.scss'
 import ProfileInfoList from "./ProfileInfoList";
 import ProfileInfoForm from "./ProfileInfoForm";
 import {startSubmit} from "redux-form";
+import cn from "classnames";
 
 const ProfileInfo = (props) => {
 
@@ -16,11 +17,8 @@ const ProfileInfo = (props) => {
         });
     };
 
-    const cls = [classes.profileInfo];
-    if(editMode) cls.push(classes.editMode);
-
     return (
-        <div className={cls.join(' ')}>
+        <div className={cn(classes.profileInfo, { [classes.editMode]: !!editMode} )}>
             {editMode
                 ? <ProfileInfoForm
                     initialValues={props.profile}

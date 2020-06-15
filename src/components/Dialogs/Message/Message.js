@@ -1,13 +1,10 @@
 import React from "react";
-import classes from './Message.module.scss'
+import classes from './Message.module.scss';
+import cn from "classnames";
 
 const Message = (props) => {
-    const cls = [classes.message];
-    if(props.own) {
-        cls.push(classes.own);
-    }
     return (
-        <div className={cls.join(' ')}>
+        <div className={cn(classes.message, {[classes.own]: props.own})}>
             {props.text}
         </div>
     );

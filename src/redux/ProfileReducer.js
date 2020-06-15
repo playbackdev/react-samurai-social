@@ -143,7 +143,7 @@ export const saveProfileInfo = (profile) => async (dispatch, getState) => {
                 fieldErrors["contacts"] = {...fieldErrors["contacts"], "vk": "Invalid link format"};
             }
             if(data.messages[i].includes('Youtube')) {
-                fieldErrors["contacts"] = {...fieldErrors["contacts"], "youtbe": "Invalid link format"};
+                fieldErrors["contacts"] = {...fieldErrors["contacts"], "youtube": "Invalid link format"};
             }
             if(data.messages[i].includes('Github')) {
                 fieldErrors["contacts"] = {...fieldErrors["contacts"], "github": "Invalid link format"};

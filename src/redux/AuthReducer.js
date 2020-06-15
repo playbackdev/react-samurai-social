@@ -79,20 +79,23 @@ export const login = (email, password, rememberMe, captcha = null) => async disp
         if (captcha) {
             dispatch(clearCaptcha());
         }
-    } else if (data.resultCode === 10) {
-        const errorText = data.messages.length > 0 ? data.messages.join(', ') : 'Server error';
-        dispatch(stopSubmit("login", {_error: errorText}));
-        API.getCaptchaUrl()
-            .then(data => dispatch(setCaptcha(data.url)));
     } else {
+        if (data.resultCode === 10) {
+            dispatch(getCaptchaUrl());
+        }
         const errorText = data.messages.length > 0 ? data.messages.join(', ') : 'Server error';
         dispatch(stopSubmit("login", {_error: errorText}));
     }
     //dispatch(stopSubmit('login'));
 };
 
+export const getCaptchaUrl = () => dispatch => {
+    API.getCaptchaUrl()
+        .then(data => dispatch(setCaptcha(data.url)));
+};
+
 export const logout = () => async (dispatch) => {
-    const data = await API.logout()
+    const data = await API.logout();
     if (data.resultCode === 0) {
         dispatch(setAuthUserData(
             null,

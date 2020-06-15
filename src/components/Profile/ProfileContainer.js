@@ -37,7 +37,7 @@ class ProfileContainer extends React.Component {
 
     render() {
         //если убрать проверку на isProfileFetching, профиль будет обновляться при изменении информации
-        //без крутилки прелоадера.
+        //без крутилки прелоадера (что не очень красиво, я считаю)
         if(this.props.isProfileFetching || !this.props.profile) return <Preloader/>;
         return (
             <Profile {...this.props} />

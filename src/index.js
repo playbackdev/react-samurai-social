@@ -9,6 +9,7 @@ import {Provider} from "react-redux";
 
 
 ReactDOM.render(
+        /*HashRouter only for gh-pages. Use BrowserRouter! */
         <HashRouter
             /*basename={process.env.PUBLIC_URL}*/
         >
