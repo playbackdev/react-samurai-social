@@ -10,6 +10,7 @@ import {initializeApp} from "./redux/AppReducer";
 import AppPreloader from "./components/UI/Preloader/AppPreloader";
 
 import HeaderContainer from "./components/Header/HeaderContainer";
+import {Popup} from "./components/UI/Popup/Popup";
 const DialogsContainer = lazy(() => import('./components/Dialogs/DialogsContainer'));
 const ProfileContainer = lazy(() => import('./components/Profile/ProfileContainer'));
 const UsersContainer = lazy(() => import('./components/Users/UsersContainer'));
@@ -30,7 +31,6 @@ class App extends Component {
                 <div className="app-container">
                     <div className="app-content">
                         <Suspense fallback={<AppPreloader/>}>
-
                             <Switch>
                                 {/*Знак ? в конце пути означает, что параметр опциональный,
                                 роут будет работать и без него*/}
@@ -44,6 +44,7 @@ class App extends Component {
                                 <Redirect exact from="/" to="/profile"/>
                                 <Route path='*' render={() => <div>404 NOT FOUND</div>}/>
                             </Switch>
+                            {this.props.error && <Popup message={this.props.error} className={"error"}/>}
                         </Suspense>
                     </div>
                 </div>
@@ -55,6 +56,7 @@ class App extends Component {
 const mapStateToProps = state => {
     return {
         initialized: state.appState.initialized,
+        error: state.userErrors.error
     }
 };
 

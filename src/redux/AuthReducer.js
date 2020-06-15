@@ -1,5 +1,6 @@
 import {API} from "../api/api";
 import {stopSubmit} from "redux-form";
+import {setTempUserError} from "./ErrorsReducer";
 
 const SET_AUTH_IS_FETCHING = 'auth/SET_AUTH_IS_FETCHING';
 const FETCH_USER_DATA = 'auth/FETCH_USER_DATA';
@@ -82,6 +83,7 @@ export const login = (email, password, rememberMe, captcha = null) => async disp
     } else {
         if (data.resultCode === 10) {
             dispatch(getCaptchaUrl());
+            dispatch(setTempUserError("Вы слишком много раз ввели неверный пароль", 5000));
         }
         const errorText = data.messages.length > 0 ? data.messages.join(', ') : 'Server error';
         dispatch(stopSubmit("login", {_error: errorText}));

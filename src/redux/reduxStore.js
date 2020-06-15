@@ -4,9 +4,11 @@ import dialogsReducer from "./DialogsReducer";
 import usersReducer from "./UsersReducer";
 import AuthReducer from "./AuthReducer";
 import AppReducer from "./AppReducer";
+import errorsReducer from "./ErrorsReducer";
 
 import thunkMiddleware from "redux-thunk";
 import { reducer as formReducer } from 'redux-form';
+
 
 let reducers = combineReducers({
     profilePage: profileReducer,
@@ -14,7 +16,8 @@ let reducers = combineReducers({
     usersPage: usersReducer,
     auth: AuthReducer,
     appState: AppReducer,
-    form: formReducer
+    form: formReducer,
+    userErrors: errorsReducer
 });
 
 const composeEnhancers =
