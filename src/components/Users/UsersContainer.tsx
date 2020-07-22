@@ -4,19 +4,40 @@ import {fetchUsers, toggleFollowUser} from "../../redux/UsersReducer";
 import Users from "./Users";
 import {compose} from "redux";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {UserType} from "../../types/types";
+import {AppStateType} from "../../redux/reduxStore";
+
+type MapStatePropsType = {
+    pageSize: number
+    users: Array<UserType>
+    totalUsersCount: number
+    areUsersFetching: boolean
+    currentPage: number
+};
+
+type MapDispatchPropsType = {
+    fetchUsers: (currentPage: number, pageSize: number) => void
+    toggleFollowUser: (userId: number, follow: boolean, callback: () => void ) => void
+};
+
+type OwnPropsType = {
+    userId: number
+}
+
+type PropsType = MapStatePropsType & MapDispatchPropsType & OwnPropsType
 
 
-class UsersContainer extends React.Component {
+class UsersContainer extends React.Component<PropsType> {
 
     componentDidMount() {
         this.props.fetchUsers(this.props.currentPage, this.props.pageSize);
     }
 
-    toggleFollowUser = (userId, follow, callback) => {
+    toggleFollowUser = (userId: number, follow: boolean, callback: () => void) => {
         this.props.toggleFollowUser(userId, follow, callback);
     };
 
-    onPageChanged = (pageNum) => {
+    onPageChanged = (pageNum: number) => {
         this.props.fetchUsers(pageNum, this.props.pageSize);
     };
 
@@ -36,7 +57,7 @@ class UsersContainer extends React.Component {
 }
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: AppStateType) => {
     return {
         users: state.usersPage.users,
         pageSize: state.usersPage.pageSize,
@@ -53,6 +74,7 @@ const mapDispatchToProps = {
 
 //export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
 export default compose(
-    connect(mapStateToProps, mapDispatchToProps),
+    //TStateProps, TDispatchProps, TOwnProps, State = DefaultRootState
+    connect<MapStatePropsType, MapDispatchPropsType, OwnPropsType, AppStateType>(mapStateToProps, mapDispatchToProps),
     withAuthRedirect
 )(UsersContainer);

@@ -1,13 +1,20 @@
 import React from "react";
 import classes from './Paginator.module.scss'
 
-const Paginator = ({pagesCount, currentPage, onPageChanged, isFetching}) => {
+type PropsType = {
+    pagesCount: number
+    currentPage: number
+    onPageChanged: (pageNum: number) => void
+    isFetching: boolean
+}
+
+const Paginator: React.FC<PropsType> = ({pagesCount, currentPage, onPageChanged, isFetching}) => {
 
     const n = currentPage;
     const D = 7; //pages to draw
     const P = pagesCount;
 
-    const onPageChangedHandler = (k) => {
+    const onPageChangedHandler = (k: number): void => {
         onPageChanged(k);
     };
 
@@ -15,8 +22,8 @@ const Paginator = ({pagesCount, currentPage, onPageChanged, isFetching}) => {
         return null;
     }
 
-    let a;
-    let b;
+    let a: number = 0;
+    let b: number = 0;
 
     if(P <= D) {
         a = 1;
@@ -48,7 +55,7 @@ const Paginator = ({pagesCount, currentPage, onPageChanged, isFetching}) => {
         pages.push(
             <button className={classes.dots}
                 key='startDisabled'
-                disabled="disabled"
+                disabled={true}
             >...
             </button>
         );
@@ -70,7 +77,7 @@ const Paginator = ({pagesCount, currentPage, onPageChanged, isFetching}) => {
         pages.push(
             <button className={classes.dots}
                 key='endDisabled'
-                disabled="disabled"
+                disabled={true}
             >...
             </button>
         );

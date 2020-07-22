@@ -92,13 +92,13 @@ export const setUsersAreFetching = (areUsersFetching: boolean) : SetUsersAreFetc
 //thunks
 export const fetchUsers = (page: number, pageSize: number) => async (dispatch: any) => {
     dispatch(setUsersAreFetching(true));
-    const data = await API.getUsers(page, pageSize)
+    const data = await API.getUsers(page, pageSize);
     dispatch(setUsers(data.items, data.totalCount));
     dispatch(setCurrentPage(page));
     dispatch(setUsersAreFetching(false));
 };
 
-export const toggleFollowUser = (userId: number, isFollow: boolean, answerHandler: (...rest: any[]) => void) => async (dispatch: any) => {
+export const toggleFollowUser = (userId: number, isFollow: boolean, answerHandler: () => void) => async (dispatch: any) => {
     const data = isFollow ? await API.followUser(userId) : await API.unfollowUser(userId);
     if (data.resultCode === 0) {
         dispatch(toggleFollowSuccess(userId, isFollow));

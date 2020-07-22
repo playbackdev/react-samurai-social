@@ -3,8 +3,19 @@ import classes from './Users.module.scss'
 import UserItem from "./UserItem";
 import Paginator from "../UI/Paginator/Paginator";
 import Preloader from "../UI/Preloader/Preloader";
+import {UserType} from "../../types/types";
 
-const Users = (props) => {
+type PropsType = {
+    totalUsersCount: number
+    pageSize: number
+    users: Array<UserType>
+    areUsersFetching: boolean
+    currentPage: number
+    onPageChanged: (pageNum: number) => void
+    toggleFollowUser: (userId: number, follow: boolean, callback: () => void ) => void
+}
+
+const Users: React.FC<PropsType> = (props) => {
 
     let pages = Math.ceil(props.totalUsersCount / props.pageSize);
 
