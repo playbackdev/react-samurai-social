@@ -1,11 +1,15 @@
 const SET_ERROR = 'errorsReducer/SET_ERROR';
 const CLEAR_ERROR = 'errorsReducer/CLEAR_ERROR';
 
-const initialState = {
+type InitialStateType = {
+    error: string | null;
+};
+
+const initialState: InitialStateType = {
     error: null
 };
 
-const errorsReducer = (state = initialState, action) => {
+const errorsReducer = (state = initialState, action: ErrorsReducerActionsType): InitialStateType => {
     switch(action.type) {
         case SET_ERROR:
             return {
@@ -24,16 +28,25 @@ const errorsReducer = (state = initialState, action) => {
 
 export default errorsReducer;
 
-export const setUserError = (message) => {
+type ErrorsReducerActionsType = SetUserErrorActionType | ClearUserErrorActionType;
+
+type SetUserErrorActionType = {
+    type: typeof SET_ERROR;
+    message: string
+};
+export const setUserError = (message: string): SetUserErrorActionType => {
     return {type: SET_ERROR, message};
 };
 
-export const clearUserError = () => {
+type ClearUserErrorActionType = {
+    type: typeof CLEAR_ERROR;
+}
+export const clearUserError = (): ClearUserErrorActionType => {
     return {type: CLEAR_ERROR};
 };
 
 //thunks
-export const setTempUserError = (message, timeout) => dispatch => {
+export const setTempUserError = (message: string, timeout: number) => (dispatch: any) => {
     dispatch(setUserError(message));
     setTimeout(() => {
         dispatch(clearUserError());

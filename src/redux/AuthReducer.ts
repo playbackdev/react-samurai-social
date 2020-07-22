@@ -7,7 +7,8 @@ const FETCH_USER_DATA = 'auth/FETCH_USER_DATA';
 const SET_CAPTCHA = 'auth/SET_CAPTCHA';
 const CLEAR_CAPTCHA = 'auth/CLEAR_CAPTCHA';
 
-const initialState = {
+
+const initialState: InitialStateType = {
     isFetching: false,
     userId: null,
     email: null,
@@ -16,20 +17,22 @@ const initialState = {
     captchaUrl: null
 };
 
-const AuthReducer = (state = initialState, action) => {
+const AuthReducer = (state: InitialStateType = initialState, action: ActionTypes): InitialStateType => {
     switch(action.type) {
         case FETCH_USER_DATA:
             return {
                 ...state,
-                ...action.payload
+                ...action.payload,
             };
         case SET_AUTH_IS_FETCHING:
             return {
-                ...state, isFetching: action.isFetching
+                ...state,
+                isFetching: action.payload.isFetching,
             };
         case SET_CAPTCHA:
             return {
-                ...state, captchaUrl: action.captchaUrl
+                ...state,
+                captchaUrl: action.payload.captchaUrl
             };
         case CLEAR_CAPTCHA:
             return {
@@ -43,24 +46,26 @@ const AuthReducer = (state = initialState, action) => {
 export default AuthReducer;
 
 
-export const setIsFetching = isFetching => {
-    return { type: SET_AUTH_IS_FETCHING, isFetching}
+export const setIsFetching = (isFetching: boolean): SetIsFetchingActionType => {
+    return { type: SET_AUTH_IS_FETCHING, payload: {isFetching} }
 };
 
-export const setAuthUserData = (userId, email, login, isAuth) => {
+
+export const setAuthUserData = (userId: number | null, email: string | null, login: string | null, isAuth: boolean): SetAuthUserDataActionType => {
     return { type: FETCH_USER_DATA, payload: {userId, email, login, isAuth}}
 };
 
-export const setCaptcha = (captchaUrl) => {
-    return { type: SET_CAPTCHA, captchaUrl}
+
+export const setCaptcha = (captchaUrl: string): SetCaptchaActionType => {
+    return { type: SET_CAPTCHA, payload: {captchaUrl} }
 };
 
-export const clearCaptcha = () => {
+export const clearCaptcha = (): ClearCaptchaActionType => {
     return { type: CLEAR_CAPTCHA };
 };
 
 //thunks
-export const authMe = () => async (dispatch) => {
+export const authMe = () => async (dispatch: any) => {
     dispatch(setIsFetching(true));
     const response = await API.authMe();
     if (response.resultCode === 0) {
@@ -73,7 +78,7 @@ export const authMe = () => async (dispatch) => {
     dispatch(setIsFetching(false));
 };
 
-export const login = (email, password, rememberMe, captcha = null) => async dispatch => {
+export const login = (email: string, password: string, rememberMe: boolean, captcha = null) => async (dispatch: any) => {
     const data = await API.login(email, password, rememberMe, captcha);
     if (data.resultCode === 0) {
         dispatch(authMe());
@@ -91,12 +96,12 @@ export const login = (email, password, rememberMe, captcha = null) => async disp
     //dispatch(stopSubmit('login'));
 };
 
-export const getCaptchaUrl = () => dispatch => {
+export const getCaptchaUrl = () => (dispatch: any) => {
     API.getCaptchaUrl()
-        .then(data => dispatch(setCaptcha(data.url)));
+        .then((data: any) => dispatch(setCaptcha(data.url)));
 };
 
-export const logout = () => async (dispatch) => {
+export const logout = () => async (dispatch: any) => {
     const data = await API.logout();
     if (data.resultCode === 0) {
         dispatch(setAuthUserData(
@@ -107,3 +112,40 @@ export const logout = () => async (dispatch) => {
     }
 };
 
+// ============ TYPES ==============//
+export type InitialStateType = {
+    isFetching: boolean;
+    userId: number | null;
+    email: string | null;
+    login: string | null;
+    isAuth: boolean;
+    captchaUrl: string | null;
+};
+
+type ActionTypes = SetIsFetchingActionType | SetAuthUserDataActionType | SetCaptchaActionType | ClearCaptchaActionType;
+
+type SetIsFetchingActionType = {
+    type: typeof SET_AUTH_IS_FETCHING;
+    payload: {isFetching: boolean};
+};
+
+type SetAuthUserDataActionType = {
+    type: typeof FETCH_USER_DATA;
+    payload: SetAuthUserDataPayloadType;
+};
+
+type SetAuthUserDataPayloadType = {
+    userId: number | null;
+    email: string | null;
+    login: string | null;
+    isAuth: boolean;
+};
+
+type SetCaptchaActionType = {
+    type: typeof SET_CAPTCHA;
+    payload: {captchaUrl: string};
+};
+
+type ClearCaptchaActionType = {
+    type: typeof CLEAR_CAPTCHA;
+}

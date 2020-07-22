@@ -8,9 +8,10 @@ export const Popup = ({message, className, timeout = 3000}) => {
 
     useEffect( () => {
         setShowPopup(true);
-        setTimeout(() => {
+        const hidePopupTimer = setTimeout(() => {
             setShowPopup(false);
         }, timeout);
+        return () => clearTimeout(hidePopupTimer);
     }, [message]);
 
     if(!showPopup) return null;

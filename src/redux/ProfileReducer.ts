@@ -1,5 +1,6 @@
 import {API} from "../api/api";
 import {stopSubmit} from "redux-form";
+import {PhotosType, PostType, ProfileType} from "../types/types";
 
 const ADD_POST = 'ADD_POST';
 const DELETE_POST = 'DELETE_POST';
@@ -8,7 +9,25 @@ const SET_PROFILE_IS_FETCHING = 'SET_PROFILE_IS_FETCHING';
 const SET_STATUS = 'SET_STATUS';
 const SET_AVATAR_SUCCESS = 'SET_AVATAR_SUCCESS';
 
-const initialState = {
+enum ContactsList {
+    Facebook = 'facebook',
+    Website = 'website',
+    Instagram = 'instagram',
+    Vk = 'vk',
+    Youtube = 'youtube',
+    Github = 'github',
+    MainLink = 'mainLink',
+    Twitter = 'twitter'
+}
+
+export type InitialStateType = {
+    isProfileFetching: boolean,
+    profile: ProfileType | null,
+    status: string,
+    posts: PostType[]
+};
+
+const initialState: InitialStateType = {
     isProfileFetching: false,
     profile: null,
     status: '',
@@ -19,7 +38,7 @@ const initialState = {
     ]
 };
 
-const profileReducer = (state = initialState, action) => {
+const profileReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
     switch(action.type) {
         case SET_USER_PROFILE:
             return {
@@ -55,7 +74,7 @@ const profileReducer = (state = initialState, action) => {
             return {
                 ...state,
                 profile: {
-                    ...state.profile,
+                    ...state.profile as ProfileType,
                     photos: action.photos
                 }
             };
@@ -66,34 +85,62 @@ const profileReducer = (state = initialState, action) => {
 
 export default profileReducer;
 
-export const fetchProfileSuccess = profile => {
+type ActionsTypes = FetchProfileActionType | AddPostActionType |
+    DeletePostActionType | SetIsProfileFetchingActionType |
+    SetStatusActionType | SetAvatarActionType;
+
+type FetchProfileActionType = {
+    type: typeof SET_USER_PROFILE;
+    profile: ProfileType;
+}
+export const fetchProfileSuccess = (profile: ProfileType): FetchProfileActionType => {
     return { type: SET_USER_PROFILE, profile}
 };
 
-export const addPost = (newPostText) => {
+type AddPostActionType = {
+    type: typeof ADD_POST;
+    newPostText: string;
+}
+export const addPost = (newPostText: string): AddPostActionType => {
     return {type: ADD_POST, newPostText};
 };
 
-export const deletePost = (postId) => {
+type DeletePostActionType = {
+    type: typeof DELETE_POST;
+    postId: number;
+}
+export const deletePost = (postId: number): DeletePostActionType => {
     return {type: DELETE_POST, postId};
 };
 
-export const setIsProfileFetching = isProfileFetching => {
+type SetIsProfileFetchingActionType = {
+    type: typeof SET_PROFILE_IS_FETCHING;
+    isProfileFetching: boolean;
+}
+export const setIsProfileFetching = (isProfileFetching: boolean): SetIsProfileFetchingActionType => {
     return { type: SET_PROFILE_IS_FETCHING, isProfileFetching}
 };
 
-export const setStatus = status => {
+type SetStatusActionType = {
+    type: typeof SET_STATUS;
+    status: string;
+}
+export const setStatus = (status: string): SetStatusActionType => {
     return { type: SET_STATUS, status}
 };
 
-export const saveAvatarSuccess = photos => {
+type SetAvatarActionType = {
+    type: typeof SET_AVATAR_SUCCESS;
+    photos: PhotosType;
+}
+export const saveAvatarSuccess = (photos: PhotosType): SetAvatarActionType => {
     return { type: SET_AVATAR_SUCCESS, photos}
 };
 
 
 
 //thunks
-export const fetchProfile = (userId) => async (dispatch) => {
+export const fetchProfile = (userId: number) => async (dispatch: any) => {
     dispatch(setIsProfileFetching(true));
     const data = await API.fetchProfile(userId);
     dispatch(fetchProfileSuccess(data));
@@ -101,26 +148,26 @@ export const fetchProfile = (userId) => async (dispatch) => {
 
 };
 
-export const fetchStatus = (userId) => async (dispatch) => {
+export const fetchStatus = (userId: number) => async (dispatch: any) => {
     const data = await API.fetchStatus(userId);
     dispatch(setStatus(data));
 };
 
-export const updateStatus = (status) => async dispatch => {
+export const updateStatus = (status: string) => async (dispatch: any) => {
     const data = await API.updateStatus(status);
     if (data.resultCode === 0) {
         dispatch(setStatus(status));
     }
 };
 
-export const saveAvatar = (avatar) => async dispatch => {
+export const saveAvatar = (avatar: any) => async (dispatch: any) => {
     const data = await API.saveAvatar(avatar);
     if (data.resultCode === 0) {
         dispatch(saveAvatarSuccess(data.data.photos));
     }
 };
 
-export const saveProfileInfo = (profile) => async (dispatch, getState) => {
+export const saveProfileInfo = (profile: ProfileType) => async (dispatch: any, getState: any) => {
     const userId = getState().auth.userId;
     const data = await API.saveProfileInfo(profile);
     if (data.resultCode === 0) {
@@ -128,32 +175,16 @@ export const saveProfileInfo = (profile) => async (dispatch, getState) => {
     } else {
         const errorFormText = data.messages.length > 0 ? data.messages.join(', ') : 'Server error';
 
-        let fieldErrors = {};
+        let fieldErrors: any = {};
         for(let i = 0; i < data.messages.length; i++) {
-            if(data.messages[i].includes('Facebook')) {
-                fieldErrors["contacts"] = {...fieldErrors["contacts"], "facebook": "Invalid link format"};
-            }
-            if(data.messages[i].includes('Website')) {
-                fieldErrors["contacts"] = {...fieldErrors["contacts"], "website": "Invalid link format"};
-            }
-            if(data.messages[i].includes('Instagram')) {
-                fieldErrors["contacts"] = {...fieldErrors["contacts"], "instagram": "Invalid link format"};
-            }
-            if(data.messages[i].includes('Vk')) {
-                fieldErrors["contacts"] = {...fieldErrors["contacts"], "vk": "Invalid link format"};
-            }
-            if(data.messages[i].includes('Youtube')) {
-                fieldErrors["contacts"] = {...fieldErrors["contacts"], "youtube": "Invalid link format"};
-            }
-            if(data.messages[i].includes('Github')) {
-                fieldErrors["contacts"] = {...fieldErrors["contacts"], "github": "Invalid link format"};
-            }
-            if(data.messages[i].includes('MainLink')) {
-                fieldErrors["contacts"] = {...fieldErrors["contacts"], "mainLink": "Invalid link format"};
-            }
-            if(data.messages[i].includes('Twitter')) {
-                fieldErrors["contacts"] = {...fieldErrors["contacts"], "twitter": "Invalid link format"};
-            }
+            Object.entries(ContactsList).map((value) => {
+                //value - массив ["Facebook", "facebook"]  и т.п.
+                //value[0] - строки ключей (Facebook, Vk, Twitter...)
+                //value[1] - строковые значений (facebook, vk, twitter...)
+                if(data.messages[i].includes(value[0])) {
+                    fieldErrors["contacts"] = {...fieldErrors["contacts"], [value[1]]: "Invalid link format"};
+                }
+            });
         }
 
         dispatch(stopSubmit("profileInfoEdit", {_error: errorFormText, ...fieldErrors}));
