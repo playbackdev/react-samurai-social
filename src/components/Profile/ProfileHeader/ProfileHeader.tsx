@@ -1,11 +1,20 @@
-import React, {useEffect, useState} from "react";
+import React, {ChangeEvent, useEffect, useState} from "react";
 import classes from './ProfileHeader.module.scss'
 import UserPhotoSmall from '../../../assets/img/userPhotoSmall.png'
 import ProfileStatus from "./ProfileStatus";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCameraRetro, faSpinner} from "@fortawesome/free-solid-svg-icons";
 
-function ProfileHeader(props) {
+type PropsType = {
+    isOwnProfile: boolean
+    fullName: string
+    avatar: string
+    status: string
+    updateStatus: (status: string) => void
+    saveAvatar: (avatar: File) => void
+}
+
+const  ProfileHeader: React.FC<PropsType> = (props) => {
 
     const [isAvatarUploading, setIsAvatarUploading] = useState(false);
 
@@ -15,8 +24,8 @@ function ProfileHeader(props) {
         }
     }, [props.avatar]);
 
-    const avatarSelected = (e) => {
-        if (e.target.files.length) {
+    const avatarSelected = (e: ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files.length) {
             setIsAvatarUploading(true);
             props.saveAvatar(e.target.files[0]);
         }
@@ -52,9 +61,11 @@ function ProfileHeader(props) {
             <ProfileStatus
                 status={props.status}
                 updateStatus={props.updateStatus}
+                isOwnProfile={props.isOwnProfile}
             />
         </div>
     );
-}
+};
 
 export default ProfileHeader;
+

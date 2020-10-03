@@ -22,6 +22,11 @@ const Login = (props) => {
         <div className={classes.Login}>
             <h3>Login</h3>
             <LoginReduxForm captchaUrl={props.captchaUrl} onSubmit={onSubmit}/>
+            <div className={classes.infoBlock}>
+                <span>Для входа используйте тестовый аккаунт:</span>
+                <span>Email: <b>free@samuraijs.com</b></span>
+                <span>Password: <b>free</b></span>
+            </div>
         </div>
     );
 };

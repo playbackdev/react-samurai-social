@@ -7,7 +7,7 @@ import {ValidatedElement} from "../UI/FormValidation/ValidatedElement";
 import {maxLength, minLength, required} from "../../utils/validators/validators";
 
 const loginValidators = [required, maxLength(32)];
-const passwordValidators = [required, minLength(6)];
+const passwordValidators = [required, minLength(4)];
 
 const LoginForm = (props) => {
 

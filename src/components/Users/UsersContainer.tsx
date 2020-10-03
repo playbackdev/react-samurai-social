@@ -14,16 +14,13 @@ type MapStatePropsType = {
     areUsersFetching: boolean
     currentPage: number
 };
-
 type MapDispatchPropsType = {
     fetchUsers: (currentPage: number, pageSize: number) => void
     toggleFollowUser: (userId: number, follow: boolean, callback: () => void ) => void
 };
-
 type OwnPropsType = {
     userId: number
 }
-
 type PropsType = MapStatePropsType & MapDispatchPropsType & OwnPropsType
 
 

@@ -37,9 +37,9 @@ class App extends Component {
                                 <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
                                 <Route path='/dialogs' render={() => <DialogsContainer/>}/>
                                 <Route path='/users' component={UsersContainer}/>
-                                <Route path='/news' component={News}/>
-                                <Route path='/music' component={Music}/>
-                                <Route path='/settings' component={Settings}/>
+                                {/*<Route path='/news' component={News}/>*/}
+                                {/*<Route path='/music' component={Music}/>*/}
+                                {/*<Route path='/settings' component={Settings}/>*/}
                                 <Route path='/login' component={Login}/>
                                 <Redirect exact from="/" to="/profile"/>
                                 <Route path='*' render={() => <div>404 NOT FOUND</div>}/>

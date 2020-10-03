@@ -1,9 +1,15 @@
-import React, {useEffect, useState} from "react";
+import React, {ChangeEvent, useEffect, useState} from "react";
 import classes from './ProfileStatus.module.scss';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSave, faTimes} from "@fortawesome/free-solid-svg-icons";
 
-const ProfileStatus = props => {
+type PropsType = {
+    status: string
+    updateStatus: (status: string) => void
+    isOwnProfile: boolean
+}
+
+const ProfileStatus: React.FC<PropsType> = (props) => {
 
     const [editMode, setEditMode] = useState(false);
     const [status, setStatus] = useState(props.status);
@@ -12,8 +18,11 @@ const ProfileStatus = props => {
         setStatus(props.status);
 
     }, [props.status]);
+
     const activateEditMode = () => {
-        setEditMode(true);
+        if(props.isOwnProfile) {
+            setEditMode(true);
+        }
     };
 
     const deactivateEditMode = () => {
@@ -21,7 +30,7 @@ const ProfileStatus = props => {
         setStatus(props.status);
     };
 
-    const onChangeUpdateSetLocalStatus = (e) => {
+    const onChangeUpdateSetLocalStatus = (e: ChangeEvent<HTMLInputElement>) => {
         setStatus(e.currentTarget.value);
     };
 
@@ -58,7 +67,7 @@ const ProfileStatus = props => {
                         </div>
                     </div>
                     : <div className={classes.ProfileStatus}>
-                        <p onClick={activateEditMode}>
+                        <p className={props.isOwnProfile?classes.editable:''} onClick={activateEditMode}>
                             {props.status || 'No status'}
                         </p>
                     </div>

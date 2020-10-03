@@ -29,25 +29,25 @@ const Navbar = () => {
                     <span className={classes.navLinkText}>Users</span>
                 </NavLink>
             </div>
-            <div>
+            {/*<div>*/}
 
-                <NavLink to="/news" activeClassName={classes.active}>
-                    <FontAwesomeIcon icon={faNewspaper} />
-                    <span className={classes.navLinkText}>News</span>
-                </NavLink>
-            </div>
-            <div>
-                <NavLink to="/music" activeClassName={classes.active}>
-                    <FontAwesomeIcon icon={faMusic} />
-                    <span className={classes.navLinkText}>Music</span>
-                </NavLink>
-            </div>
-            <div>
-                <NavLink to="/settings" activeClassName={classes.active}>
-                    <FontAwesomeIcon icon={faCog} />
-                    <span className={classes.navLinkText}>Settings</span>
-                </NavLink>
-            </div>
+            {/*    <NavLink to="/news" activeClassName={classes.active}>*/}
+            {/*        <FontAwesomeIcon icon={faNewspaper} />*/}
+            {/*        <span className={classes.navLinkText}>News</span>*/}
+            {/*    </NavLink>*/}
+            {/*</div>*/}
+            {/*<div>*/}
+            {/*    <NavLink to="/music" activeClassName={classes.active}>*/}
+            {/*        <FontAwesomeIcon icon={faMusic} />*/}
+            {/*        <span className={classes.navLinkText}>Music</span>*/}
+            {/*    </NavLink>*/}
+            {/*</div>*/}
+            {/*<div>*/}
+            {/*    <NavLink to="/settings" activeClassName={classes.active}>*/}
+            {/*        <FontAwesomeIcon icon={faCog} />*/}
+            {/*        <span className={classes.navLinkText}>Settings</span>*/}
+            {/*    </NavLink>*/}
+            {/*</div>*/}
         </nav>
     );
 
