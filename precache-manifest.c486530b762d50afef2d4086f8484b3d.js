@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8320ac6207ce2f949e0c0b04e879d1f6",
+    "revision": "cd8b55aa56a89059963330d9a8532774",
     "url": "/react-samurai-social/index.html"
   },
   {
-    "revision": "b34a2a29e264ff098f90",
+    "revision": "0be07a54ba823a644a28",
     "url": "/react-samurai-social/static/css/3.79c7fd8c.chunk.css"
   },
   {
@@ -28,8 +28,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-samurai-social/static/js/2.61f97f3a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b34a2a29e264ff098f90",
-    "url": "/react-samurai-social/static/js/3.25c1d218.chunk.js"
+    "revision": "0be07a54ba823a644a28",
+    "url": "/react-samurai-social/static/js/3.8eaa7a47.chunk.js"
   },
   {
     "revision": "281f6ee64016653a4bec",
@@ -48,8 +48,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-samurai-social/static/js/main.47ba640f.chunk.js"
   },
   {
-    "revision": "06cb261afd9cc0a1adc5",
-    "url": "/react-samurai-social/static/js/runtime-main.8f1468a7.js"
+    "revision": "6a6ae6c0efc22c1f1f45",
+    "url": "/react-samurai-social/static/js/runtime-main.8e69a9fa.js"
   },
   {
     "revision": "ba9201d8dac4dd83768871eaa42c53fd",
