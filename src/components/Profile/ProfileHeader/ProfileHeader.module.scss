@@ -51,7 +51,7 @@
       border: 1px solid #323232;
       border-radius: 20px;
       transition: all .3s;
-      opacity: 40%;
+      opacity: .5;
       &.loading {
         color: #CCCCCC;
         svg {
@@ -61,7 +61,7 @@
     }
     input:focus + label,
     input + label:hover {
-      opacity: 100%;
+      opacity: 1;
       color: $color_blue_main;
       background-color: #4a4a4a;
     }

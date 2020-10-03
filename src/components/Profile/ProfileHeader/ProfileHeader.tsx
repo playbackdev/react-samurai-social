@@ -55,7 +55,6 @@ const  ProfileHeader: React.FC<PropsType> = (props) => {
                     :<label htmlFor={"inputAvatar"}>
                         <FontAwesomeIcon icon={faCameraRetro} title={"Upload Avatar"}/>
                     </label>}
-
             </div>}
             <h1>{props.fullName}</h1>
             <ProfileStatus
